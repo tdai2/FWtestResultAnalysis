@@ -3,7 +3,7 @@
 <struts>
 <constant name="struts.multipart.maxSize" value="1000701096" />
 	<package name="default" extends="struts-default">
-		<action name="admin" class="com.action.Login">
+		<action name="login" class="com.action.Login" method="userLogin">
 			<result name="success">/admin/adminindex.jsp</result>
 			<result name="loginerror">/admin/loginerror.jsp</result>
 			<result name="exit">/admin/index.jsp</result>

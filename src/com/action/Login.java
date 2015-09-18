@@ -4,17 +4,17 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
 
-import com.dao.AdminDao;
+import com.dao.UserDao;
 
-import com.model.Admin;
+import com.model.User;
 
 public class Login {
 
-	public String adminLogin() {// 后台管理登录
+	public String userLogin() {// 后台管理登录
 		HttpServletRequest request = ServletActionContext.getRequest();
 		String name = request.getParameter("name");
 		String password = request.getParameter("pwd");
-		if(AdminDao.login(name, password))
+		if(UserDao.isLogin(name,password)!=null)
 		{
 			return "success";
 		}else {

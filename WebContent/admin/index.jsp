@@ -43,7 +43,7 @@
 
           <div align="center">
        
-             <s:form action="admin" id="login" theme="simple">
+             <s:form action="login" id="login" theme="simple">
              <table >
            
               <tr>
@@ -52,7 +52,7 @@
 							<table>
 								<tr height="30px">
 									<td>
-										用户名：
+										Username：
 									</td>
 									<td>
 										<input type="text" name="name" />
@@ -61,7 +61,7 @@
 								</tr>
 								<tr height="30px">
 									<td>
-										密&nbsp; &nbsp;码：
+										Password：
 									</td>
 									<td>
 										<input type="password" name="pwd" />
@@ -80,7 +80,7 @@
 						<td background="images/login_09.gif" height="84px">
 							<table style="margin-top: 0px;">
 								<s:submit type="image" src="images/dl.gif" id="id_log"
-									method="adminLogin">
+									>
 
 								</s:submit>
 							</table>

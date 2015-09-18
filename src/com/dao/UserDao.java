@@ -12,13 +12,13 @@ import com.model.HibernateSessionFactory;
 import com.model.User;
 
 public class UserDao {
-	public static User isLogin(String no,String pwd)
+	public static User isLogin(String name,String pwd)
 	{
 		Session session=HibernateSessionFactory.getSession();
 		try {
 			
 			Criteria criteria=session.createCriteria(User.class);
-			criteria.add(Restrictions.eq("num", no)).add(Restrictions.eq("password", pwd));
+			criteria.add(Restrictions.eq("name", name)).add(Restrictions.eq("pwd", pwd));
 			List<User> users=criteria.list();
 		
 			session.close();
@@ -55,8 +55,8 @@ public class UserDao {
 		Session session=HibernateSessionFactory.getSession();
 		User user=new User();
 		user.setName(name);
-		user.setNum(num);
-		user.setPassword(pwd);
+		//user.setNum(num);
+		//user.setPassword(pwd);
 		try {
 			
 			
