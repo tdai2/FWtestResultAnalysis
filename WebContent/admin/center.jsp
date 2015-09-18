@@ -36,7 +36,7 @@ body {
 					&nbsp;
 				</td>
 				<td width="147" valign="top">
-					<iframe height="100%" width="100%" frameborder="0" src="admin/left.jsp"
+					<iframe height="100%" width="100%" frameborder="0" src="admin/leftNavigateBar.jsp"
 						name="leftFrame" id="leftFrame" title="leftFrame"></iframe>
 				</td>
 				<td width="10" bgcolor="#add2da">

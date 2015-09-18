@@ -75,7 +75,7 @@ body {
 <script type="text/javascript" src="./js/jquery.easing.js"></script>
 <script type="text/javascript" src="./js/jquery.dimensions.js"></script>
 <script type="text/javascript" src="./js/jquery.accordion.js"></script>
-	<script language="javascript">
+	<script type="text/javascript">
 	jQuery().ready(function(){
 		jQuery('#navigation').accordion({
 			header: '.head',
@@ -93,35 +93,24 @@ body {
 <div  style="height:100%;">
 
   <ul id="navigation">
-     <li> <a class="head">用户管理</a>
+     <li> <a class="head">User Management</a>
       <ul>
-        <li><a href="useraction!showUserList.action" target="rightFrame">用户列表</a></li>
+        <li><a href="useraction!showUserList.action" target="rightFrame">User list </a></li>
       </ul>
     </li>
     <li>
-         <a class="head">首页管理</a>
+         <a class="head">Test Result Management</a>
       <ul>
-        <li><a href="firstpage!adminShowFirstPage.action" target="rightFrame">修改首页</a></li>
+        <li><a href="firstpage!adminShowFirstPage.action" target="rightFrame">Test Case Management</a></li>
+        <li><a href="firstpage!adminShowFirstPage.action" target="rightFrame">Production Management</a></li>
+        <li><a href="firstpage!adminShowFirstPage.action" target="rightFrame">Test result Management</a></li>
       </ul>
     </li>
-     <li> <a class="head">教师管理</a>
+     <li> <a class="head">Test Result View</a>
       <ul>
-        <li><a href="adminteacher!getTeacher.action" target="rightFrame">教师资料</a></li>
+        <li><a href="adminteacher!getTeacher.action" target="rightFrame">Test Result View</a></li>
       </ul>
     </li>
-        <li> <a class="head">教学资源管理</a>
-      <ul>
-        <li><a href="adminppt!showPptList.action" target="rightFrame">课件列表</a></li>
-       
-         <li><a href="referbook!showBookList" target="rightFrame">参考书籍介绍</a></li>
-      </ul>
-    </li>
-    
-    
- 
-    
-
-
   </ul>
 </div>
   </body>
