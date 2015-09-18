@@ -69,7 +69,7 @@ body {
 											<img src="images/tb.gif" width="14px" height="14px" />
 										</td>
 										<td valign="bottom">
-											<span class="style1">学生列表</span>
+											<span class="style1">User List</span>
 										</td>
 									</tr>
 								</table>

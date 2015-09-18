@@ -8,5 +8,10 @@
 			<result name="loginerror">/admin/loginerror.jsp</result>
 			<result name="exit">/admin/index.jsp</result>
 		</action>
+		
+		<action name="useraction" class="com.action.UserAction">
+			<result name="user">/admin/userlist.jsp</result>
+			<result name="toAddUser">/admin/adduser.jsp</result>
+		</action>
 	</package>
 </struts>    
