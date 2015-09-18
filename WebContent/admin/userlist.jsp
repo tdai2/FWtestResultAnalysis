@@ -87,7 +87,7 @@ body {
 							<td bgcolor="d3eaef" align="right" colspan="4" >
 								<div style="margin-right:20px;">
 									<s:a action="useraction" method="toAddUser">
-									添加用户
+									Add user
 									</s:a>
 								</div>
 							</td>
@@ -96,23 +96,19 @@ body {
 						<tr>
 							<td bgcolor="d3eaef" align="center">
 								<div class="style2">
-									编号
+									ID
 								</div>
 							</td>
-							<td bgcolor="d3eaef" align="center" width="200px">
-								<div class="style2">
-									学号
-								</div>
-							</td>
+							
 
 							<td bgcolor="d3eaef" align="center">
 								<div class="style2">
-									名字
+									name
 								</div>
 							</td>
 							<td bgcolor="d3eaef" align="center">
 								<div class="style2">
-									操作
+									operation
 								</div>
 							</td>
 						</tr>
@@ -127,11 +123,6 @@ body {
 									<td bgcolor="#ffffff" align="center">
 										<div class="style3"><%=num++%></div>
 									</td>
-									<td bgcolor="#ffffff" align="center">
-										<div class="style3">
-											<s:property value="#user.num"></s:property>
-										</div>
-									</td>
 
 									<td bgcolor="#ffffff" align="center">
 										<div class="style3">
@@ -141,7 +132,7 @@ body {
 									<td bgcolor="#ffffff" align="center">
 										<div class="style3">
 											<s:a action="useraction" method="delUser">
-												删除
+												Delete
 												<s:param name="id">${user.id}</s:param>
 												
 											</s:a>

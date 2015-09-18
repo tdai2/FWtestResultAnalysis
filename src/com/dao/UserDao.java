@@ -50,16 +50,19 @@ public class UserDao {
 		}
 		
 	}
-	public static void addUser(String num,String name, String pwd)
+	public static void addUser(String name, String pwd, String type, String ssid, String email, String phone)
 	{
 		Session session=HibernateSessionFactory.getSession();
 		User user=new User();
 		user.setName(name);
-		//user.setNum(num);
-		//user.setPassword(pwd);
+		user.setPwd(pwd);
+		user.setType(type);
+		user.setEmail(email);
+		user.setSsid(ssid);
+		user.setPhone(phone);
+		
 		try {
-			
-			
+					
 			session.save(user);
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -84,4 +87,24 @@ public class UserDao {
 		}
 		return null;
 	}
+	// to do
+	public static void updateUser(String name, String pwd, String type, String ssid, String email, String phone)
+	{
+		Session session=HibernateSessionFactory.getSession();
+		User user=new User();
+		user.setName(name);
+		user.setPwd(pwd);
+		user.setType(type);
+		user.setEmail(email);
+		user.setSsid(ssid);
+		user.setPhone(phone);
+		try {
+			
+			session.save(user);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
 }

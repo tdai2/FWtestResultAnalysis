@@ -60,16 +60,16 @@ public class UserAction extends ActionSupport{
 	public String addUser()throws Exception{
 		ActionContext context=ActionContext.getContext();
 		HttpServletRequest request=ServletActionContext.getRequest();
-		String num=request.getParameter("num");
 		String name=request.getParameter("name");
 		String pwd=request.getParameter("pwd");
-		UserDao.addUser(num, name, pwd);
+		//UserDao.addUser(name, pwd,);
 		List<User> userList=UserDao.getUserList();
 		context.put("userlist", userList);
 		
 		
 		return "user";
 	}
+	
 	public String showUserList()throws Exception{
 		ActionContext context=ActionContext.getContext();
 	

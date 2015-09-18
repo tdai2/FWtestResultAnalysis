@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<!--映射数据库的user表 -->
+	<!--Mapping Database user table-->
     <class name="com.model.User" table="user" catalog="fwtestresult">
         <!-- Mapping Id field-->
         <id name="id" type="java.lang.Integer">
@@ -16,6 +16,22 @@
         <!-- Mapping password field-->
         <property name="pwd" type="java.lang.String">
             <column name="password" length="20" not-null="true" />
+        </property>
+        <!-- mapping usertype filed-->
+        <property name="type" type="java.lang.String">
+            <column name="usertype" length="8" not-null="true" />
+        </property>
+        <!-- mapping email filed-->
+        <property name="email" type="java.lang.String">
+            <column name="email" length="20" not-null="true" />
+        </property>
+        <!-- mapping ssid filed-->
+        <property name="ssid" type="java.lang.String">
+            <column name="ssid" length="10" not-null="true" />
+        </property>
+        <!-- mapping phone filed-->
+        <property name="phone" type="java.lang.String">
+            <column name="phone" length="10" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>
