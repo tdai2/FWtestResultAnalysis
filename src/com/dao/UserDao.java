@@ -62,14 +62,42 @@ public class UserDao {
 		user.setPhone(phone);
 		
 		try {
-					
+			session.beginTransaction();		
 			session.save(user);
+			session.getTransaction().commit();
+			session.clear();
+			session.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 		
 	}
+	
+	public static void editUser(String id,String name, String pwd, String type, String ssid, String email, String phone)
+	{
+		Session session=HibernateSessionFactory.getSession();
+		User user=new User();
+		user.setId(Integer.parseInt(id));
+		user.setName(name);
+		user.setPwd(pwd);
+		user.setType(type);
+		user.setEmail(email);
+		user.setSsid(ssid);
+		user.setPhone(phone);
+		try {
+			session.beginTransaction();		
+			session.update(user);
+			session.getTransaction().commit();
+			session.clear();
+			session.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+	}
+	
 	public static List<User> getUserList()
 	{
 		Session session=HibernateSessionFactory.getSession();
@@ -106,5 +134,23 @@ public class UserDao {
 			e.printStackTrace();
 		}
 	}
-	
+	public static User getUser(int id) {
+		// TODO Auto-generated method stub
+		
+		Session session = HibernateSessionFactory.getSession();
+		
+		try {
+			session.beginTransaction();
+			User user=(User)session.get(User.class, id);
+			session.getTransaction().commit();
+			return user;
+		} catch (Exception e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		
+		} finally {
+			session.close();
+		}
+		return null;
+	}
 }

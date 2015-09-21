@@ -82,6 +82,7 @@ body {
 				<td>
 					<table width="100%" border="0" cellpadding="0" cellspacing="1"
 						bgcolor="#a8c7ce">
+						
 						<tr width="100%" height="50px" > 
 							<td bgcolor="d3eaef" align="right" colspan="8" >
 								<div style="margin-right:20px;">
@@ -90,8 +91,8 @@ body {
 									</s:a>
 								</div>
 							</td>
-						
 						</tr>
+						
 						<tr>
 						
 							<td bgcolor="d3eaef" align="center">
@@ -132,15 +133,16 @@ body {
 			               
 			               <td bgcolor="d3eaef" align="center">
    				           <div class="style2">
-					       Operation
+					       Edit
 			   	           </div>
 			               </td>
 			               
 			               <td bgcolor="d3eaef" align="center">
    				           <div class="style2">
-					       Operation
+					       Delete
 			   	           </div>
-			               </td>								
+			               </td>
+			               
 						</tr>
 	
 
@@ -180,7 +182,7 @@ body {
 									</td>
 									<td bgcolor="#ffffff" align="center">
 										<div class="style3">
-											<s:a action="useraction" method="editUser">
+											<s:a action="useraction" method="toEditUser">
 												Edit
 												<s:param name="id">${user.id}</s:param>
 											</s:a>

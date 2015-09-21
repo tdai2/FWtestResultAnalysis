@@ -63,28 +63,22 @@ a            { color:#0000ff; text-decoration: none; }
     <script type="text/javascript">
     
     	function check(){
-    		var num=document.getElementById("num");
-    		if(num=="")
-    		{
-    			alert("学号不能为空！");
-    			return false;
-    		}
     		var name=document.getElementById("name");
     		if(name=="")
     		{
-    			alert("姓名不能为空！");
+    			alert("Name can't be Empty！");
     			return false;
     		}
     		var pwd=document.getElementById("pwd");
     		if(num=="")
     		{
-    			alert("密码不能为空！");
+    			alert("Password can't be empty！");
     			return false;
     		}
     		var repwd=document.getElementById("repwd");
     		if(repwd!=pwd)
     		{
-    			alert("两次密码不一样！");
+    			alert("Password are not identical！");
     			return false;
     		}
     		return true;
@@ -102,11 +96,8 @@ a            { color:#0000ff; text-decoration: none; }
 						<table width="100%" border="0" align="center" cellpadding="0"
 							cellspacing="0">
 							<tr >
-								<td width="18px" valign="bottom">
-									<img src="images/tb.gif" width="14px" height="14px" />
-								</td>
 								<td valign="bottom">
-									<span class="style1" >添加用户</span>
+									<span class="style1" >Add User</span>
 								</td>
 							</tr>
 						</table>
@@ -120,19 +111,9 @@ a            { color:#0000ff; text-decoration: none; }
           		<td>
           			<s:form action="useraction" theme="simple">
 					<table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#a8c7ce">
-					<tr height="50px">
-						<td bgcolor="#ffffff" align="center" width="60px">
-							<div class="style2">学号：</div>
-						</td >
-						<td bgcolor="#ffffff"  width="60px">
-							<div class="style2">
-								<s:textfield name="num" theme="simple"></s:textfield>
-							</div>
-						</td >
-					</tr>
 					<tr>
 						<td bgcolor="#ffffff" align="center" width="150px">
-							<div class="style2">姓名：</div>
+							<div class="style2">Name：</div>
 						</td >
 						<td bgcolor="#ffffff"  width="150px">
 							<div class="style2">
@@ -142,7 +123,17 @@ a            { color:#0000ff; text-decoration: none; }
 					</tr>
 					<tr>
 						<td bgcolor="#ffffff" align="center" width="200px">			
-							 <div class="style2">密码：</div>
+							 <div class="style2">User Type</div>
+						</td>
+						<td bgcolor="#ffffff" width="200px">			
+							 <div class="style2">
+								<s:textfield name="uType" theme="simple"></s:textfield>
+							 </div>
+						</td>
+					</tr>
+					<tr>
+						<td bgcolor="#ffffff" align="center" width="200px">			
+							 <div class="style2">Password：</div>
 						</td>
  						<td bgcolor="#ffffff" width="200px">			
 							 <div class="style2">
@@ -152,7 +143,7 @@ a            { color:#0000ff; text-decoration: none; }
 					</tr>
 						<tr>
 						<td bgcolor="#ffffff" align="center" width="200px">			
-							 <div class="style2">重复密码：</div>
+							 <div class="style2">Repeat Password：</div>
 						</td>
 						<td bgcolor="#ffffff" width="200px">			
 							 <div class="style2">
@@ -160,10 +151,41 @@ a            { color:#0000ff; text-decoration: none; }
 							 </div>
 						</td>
 					</tr>
+					<tr>
+						<td bgcolor="#ffffff" align="center" width="200px">			
+							 <div class="style2">Email</div>
+						</td>
+						<td bgcolor="#ffffff" width="200px">			
+							 <div class="style2">
+								<s:textfield name="email" theme="simple"></s:textfield>
+							 </div>
+						</td>
+					</tr>
+					<tr>
+						<td bgcolor="#ffffff" align="center" width="200px">			
+							 <div class="style2">Ssid</div>
+						</td>
+						<td bgcolor="#ffffff" width="200px">			
+							 <div class="style2">
+								<s:textfield name="ssid" theme="simple"></s:textfield>
+							 </div>
+						</td>
+					</tr>
+					<tr>
+						<td bgcolor="#ffffff" align="center" width="200px">			
+							 <div class="style2">phone</div>
+						</td>
+						<td bgcolor="#ffffff" width="200px">			
+							 <div class="style2">
+								<s:textfield name="phone" theme="simple"></s:textfield>
+							 </div>
+						</td>
+					</tr>
+					
 					<tr height="50px">
 						<td colspan="2" bgcolor="#ffffff" align="center">
 							<div class="style2">
-							 <s:submit value="提交" method="addUser" theme="simple" onclick="return check();"></s:submit>
+							 <s:submit value="submit" method="addUser" theme="simple" onclick="return check();"></s:submit>
 							 </div>
 						</td>
 					</tr>

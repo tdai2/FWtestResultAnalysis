@@ -12,7 +12,7 @@
 		<action name="useraction" class="com.action.UserAction">
 			<result name="user">/admin/userlist.jsp</result>
 			<result name="toAddUser">/admin/adduser.jsp</result>
-			<result name="editUserPage">/admin/editUser.jsp</result>	
+			<result name="editUser">/admin/editUser.jsp</result>	
 		</action>
 		
 		
