@@ -50,10 +50,9 @@ public class UserAction extends ActionSupport{
 		UserDao.deleteUser(Integer.parseInt(id));
 		List<User> userList=UserDao.getUserList();
 		context.put("userlist", userList);
-		
 		return "user";
-		
 	}
+	
 	public String toAddUser()throws Exception{
 		return "toAddUser";
 	}
@@ -80,4 +79,16 @@ public class UserAction extends ActionSupport{
 		return "user";
 	}
 
+    public String editUser()throws Exception{
+	    ActionContext context=ActionContext.getContext();
+	    HttpServletRequest request=ServletActionContext.getRequest();
+	    String id=request.getParameter("id");
+	    UserDao.deleteUser(Integer.parseInt(id));
+	    List<User> userList=UserDao.getUserList();
+	    context.put("userlist", userList);
+	    return "user";
+    }
+    public String editUserPage()throws Exception{
+	    return "editUserPage";
+    }
 }

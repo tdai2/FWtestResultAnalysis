@@ -12,7 +12,7 @@
 	<head>
 		<base href="<%=basePath%>">
 
-		<title>My JSP 'itemlist.jsp' starting page</title>
+		<title>'Userlist.jsp' starting page</title>
 
 		<meta http-equiv="pragma" content="no-cache">
 		<meta http-equiv="cache-control" content="no-cache">
@@ -66,7 +66,6 @@ body {
 									cellspacing="0">
 									<tr>
 										<td width="18px" valign="bottom">
-											<img src="images/tb.gif" width="14px" height="14px" />
 										</td>
 										<td valign="bottom">
 											<span class="style1">User List</span>
@@ -83,8 +82,8 @@ body {
 				<td>
 					<table width="100%" border="0" cellpadding="0" cellspacing="1"
 						bgcolor="#a8c7ce">
-						<tr height="50px" >
-							<td bgcolor="d3eaef" align="right" colspan="4" >
+						<tr width="100%" height="50px" > 
+							<td bgcolor="d3eaef" align="right" colspan="8" >
 								<div style="margin-right:20px;">
 									<s:a action="useraction" method="toAddUser">
 									Add user
@@ -94,34 +93,64 @@ body {
 						
 						</tr>
 						<tr>
+						
 							<td bgcolor="d3eaef" align="center">
-								<div class="style2">
-									ID
-								</div>
-							</td>
-							
-
+						    <div class="style2">
+						    ID
+						    </div>
+						    </td>
+						
 							<td bgcolor="d3eaef" align="center">
-								<div class="style2">
-									name
-								</div>
-							</td>
-							<td bgcolor="d3eaef" align="center">
-								<div class="style2">
-									operation
-								</div>
-							</td>
+						    <div class="style2">
+						    User Name
+						   </div>
+						   </td>							
+						   						   
+						   <td bgcolor="d3eaef" align="center">
+						   <div class="style2">
+						   usertype
+						   </div>
+						   </td>
+						
+						   <td bgcolor="d3eaef" align="center">
+						   <div class="style2">
+						   email
+						   </div>
+						   </td>
+						   
+						   <td bgcolor="d3eaef" align="center">
+						   <div class="style2">
+						   ssid
+						   </div>
+						   </td>
+			           
+			               <td bgcolor="d3eaef" align="center">
+   				           <div class="style2">
+					       phone
+			   	           </div>
+			               </td>
+			               
+			               <td bgcolor="d3eaef" align="center">
+   				           <div class="style2">
+					       Operation
+			   	           </div>
+			               </td>
+			               
+			               <td bgcolor="d3eaef" align="center">
+   				           <div class="style2">
+					       Operation
+			   	           </div>
+			               </td>								
 						</tr>
-						<%
-							
-							int num = 1;
-						%>
+	
 
 						<s:iterator var="user" value="#request.userlist">
 						
 								<tr>
 									<td bgcolor="#ffffff" align="center">
-										<div class="style3"><%=num++%></div>
+										<div class="style3">
+										<s:property value="#user.id"></s:property>
+										</div>
 									</td>
 
 									<td bgcolor="#ffffff" align="center">
@@ -131,10 +160,38 @@ body {
 									</td>
 									<td bgcolor="#ffffff" align="center">
 										<div class="style3">
+											<s:property value="#user.type"></s:property>
+										</div>
+									</td>
+									<td bgcolor="#ffffff" align="center">
+										<div class="style3">
+											<s:property value="#user.email"></s:property>
+										</div>
+									</td>
+									<td bgcolor="#ffffff" align="center">
+										<div class="style3">
+											<s:property value="#user.ssid"></s:property>
+										</div>
+									</td>
+									<td bgcolor="#ffffff" align="center">
+										<div class="style3">
+											<s:property value="#user.phone"></s:property>
+										</div>
+									</td>
+									<td bgcolor="#ffffff" align="center">
+										<div class="style3">
 											<s:a action="useraction" method="delUser">
 												Delete
 												<s:param name="id">${user.id}</s:param>
-												
+											</s:a>
+										</div>
+									</td>
+									
+									<td bgcolor="#ffffff" align="center">
+										<div class="style3">
+											<s:a action="useraction" method="delUser">
+												Delete
+												<s:param name="id">${user.id}</s:param>
 											</s:a>
 										</div>
 									</td>
