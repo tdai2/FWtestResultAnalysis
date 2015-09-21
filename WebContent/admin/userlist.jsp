@@ -180,8 +180,8 @@ body {
 									</td>
 									<td bgcolor="#ffffff" align="center">
 										<div class="style3">
-											<s:a action="useraction" method="delUser">
-												Delete
+											<s:a action="useraction" method="editUser">
+												Edit
 												<s:param name="id">${user.id}</s:param>
 											</s:a>
 										</div>

@@ -36,8 +36,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <td bgcolor="#353c44" width="100%">
                  <table width="100%" border="1" align="center" cellpadding="0" cellspacing="0">
                     <tr>
-                        <td width="18px"><img src="images/tb.gif" width="14" height="14" /></td>
-                        <td><span class="style1">欢迎</span></td>
+                       
+                        <td><span class="style1">Welcome</span></td>
                     </tr>
                  </table>
              </td>
@@ -46,7 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </table>
        <div align="center">
        		<font color="#ff0000" size="14px">
-       		欢迎访问后台管理系统</font>
+       		Welcome to the BMC SW Validation Test Result Repository</font>
        </div>
   </body>
 </html>

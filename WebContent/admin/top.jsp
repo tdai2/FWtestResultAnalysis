@@ -29,10 +29,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td height="57" background="images/main_03.gif">
 					<table width="100%" border="0" bordercolor="#00ff00" cellpadding="0" cellspacing="0">
 						<tr>
-						
-							<td width="378" height="57" background="images/top_.jpg">
-								&nbsp;
-							</td>
 							
 							<td>
 								&nbsp;
@@ -53,7 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 														<div align="right">
 														<!-- 退出 -->
 															<s:a action="admin" method="exit" target="_parent">
-															<img src="images/quit.gif" alt=" " width="69" height="17" />
+															Exit
 															</s:a>
 														</div>
 													</td>
@@ -75,7 +71,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<table width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr>
 						
-							<td width="194" height="40" background="images/main_07.gif">
+							<td width="194" height="40" background="images/main_06.gif">
 								&nbsp;
 							</td>
 							
