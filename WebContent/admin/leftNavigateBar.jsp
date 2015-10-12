@@ -95,15 +95,16 @@ body {
   <ul id="navigation">
      <li> <a class="head">User Management</a>
       <ul>
-        <li><a href="useraction!showUserList.action" target="rightFrame">User list </a></li>
+        <li><a href="useraction!showUserList.action" target="rightFrame">User List </a></li>
       </ul>
     </li>
     <li>
          <a class="head">Test Result Management</a>
       <ul>
         <li><a href="firstpage!adminShowFirstPage.action" target="rightFrame">Test Case Management</a></li>
-        <li><a href="firstpage!adminShowFirstPage.action" target="rightFrame">Production Management</a></li>
+        <li><a href="productaction!showProductList.action" target="rightFrame">Production Management</a></li>
         <li><a href="firstpage!adminShowFirstPage.action" target="rightFrame">Test result Management</a></li>
+        <li><a href="firstpage!adminShowFirstPage.action" target="rightFrame">Add Test Result</a></li>
       </ul>
     </li>
      <li> <a class="head">Test Result View</a>
