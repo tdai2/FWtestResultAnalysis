@@ -88,6 +88,7 @@ body {
 						<td bgcolor="#ffffff"  width="60px" colspan="2">
 							<div class="style2">
 								<s:property value="#user.id"></s:property>
+								<s name="id" value="%{#user.id}">
 							</div>
 						</td >
 					</tr>
