@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 19, 2015 2:31:40 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="HwConfig" table="hw_config" catalog="fwtestresult" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="boardSku" type="string">
+            <column name="BoardSKU" length="5" />
+        </property>
+        <property name="boardFab" type="string">
+            <column name="BoardFab" length="5" />
+        </property>
+        <property name="chassis" type="string">
+            <column name="Chassis" length="10" />
+        </property>
+        <property name="hsbp" type="string">
+            <column name="HSBP" length="10" />
+        </property>
+        <property name="pus" type="string">
+            <column name="PUS" length="10" />
+        </property>
+        <property name="cpu" type="string">
+            <column name="CPU" length="10" />
+        </property>
+        <property name="memory" type="string">
+            <column name="Memory" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

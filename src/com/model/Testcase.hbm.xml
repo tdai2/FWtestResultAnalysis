@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 19, 2015 2:31:40 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Testcase" table="testcase" catalog="fwtestresult" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="testCatagory" type="string">
+            <column name="TestCatagory" length="15" not-null="true" />
+        </property>
+        <property name="testTitle" type="string">
+            <column name="TestTitle" length="100" not-null="true" />
+        </property>
+        <property name="testCaseVersion" type="string">
+            <column name="TestCaseVersion" length="5" not-null="true" />
+        </property>
+        <property name="productId" type="int">
+            <column name="ProductID" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.multipart.maxSize" value="1000701096" />
+	<package name="default" extends="struts-default">
+		<action name="login" class="com.action.Login" method="userLogin">
+			<result name="success">/admin/adminindex.jsp</result>
+			<result name="loginerror">/admin/loginerror.jsp</result>
+			<result name="exit">/admin/index.jsp</result>
+		</action>
+		
+		<action name="useraction" class="com.action.UserAction">
+			<result name="user">/admin/userlist.jsp</result>
+			<result name="toAddUser">/admin/adduser.jsp</result>
+			<result name="editUser">/admin/editUser.jsp</result>	
+		</action>
+		
+		<action name="productaction" class="com.action.ProductAction">
+			<result name="product">/admin/productList.jsp</result>
+			<result name="toAddProduct">/admin/addProduct.jsp</result>
+			<result name="editProduct">/admin/editProduct.jsp</result>	
+		</action>
+		
+		
+	</package>
+</struts>    
