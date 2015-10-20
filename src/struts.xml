@@ -21,6 +21,12 @@
 			<result name="editProduct">/admin/editProduct.jsp</result>	
 		</action>
 		
+		<action name="TestCaseAction" class="com.action.TestCaseAction">
+			<result name="testCaseList">/admin/testCaseList.jsp</result>
+			<result name="toAddTestCase">/admin/addProduct.jsp</result>
+			<result name="editTestCase">/admin/editProduct.jsp</result>	
+		</action>
+		
 		
 	</package>
 </struts>    

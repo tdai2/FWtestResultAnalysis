@@ -33,5 +33,6 @@
 	<mapping resource="com/model/Teacher.hbm.xml" />
 	<mapping resource="com/model/User.hbm.xml" />
 	<mapping resource="com/model/Product.hbm.xml" />
+	<mapping resource="com/model/Testcase.hbm.xml" />
 </session-factory>
 </hibernate-configuration>

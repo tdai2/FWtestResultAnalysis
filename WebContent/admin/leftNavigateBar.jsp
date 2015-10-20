@@ -101,7 +101,7 @@ body {
     <li>
          <a class="head">Test Result Management</a>
       <ul>
-        <li><a href="firstpage!adminShowFirstPage.action" target="rightFrame">Test Case Management</a></li>
+        <li><a href="TestCaseAction!showTestCaseList.action" target="rightFrame">Test Case Management</a></li>
         <li><a href="productaction!showProductList.action" target="rightFrame">Production Management</a></li>
         <li><a href="firstpage!adminShowFirstPage.action" target="rightFrame">Test result Management</a></li>
         <li><a href="firstpage!adminShowFirstPage.action" target="rightFrame">Add Test Result</a></li>
