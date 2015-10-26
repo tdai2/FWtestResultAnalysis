@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Oct 26, 2015 10:12:44 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="Testresult" table="testresult" catalog="fwtestresult" optimistic-lock="version">
+    <class name="com.model.TestResult" table="testresult" catalog="fwtestresult" optimistic-lock="version">
         <id name="testResultId" type="java.lang.Integer">
             <column name="testResultId" />
             <generator class="identity" />
@@ -23,17 +23,22 @@
         <property name="testType" type="string">
             <column name="testType" length="15" />
         </property>
-        <property name="productId" type="int">
-            <column name="ProductID" not-null="true" />
-        </property>
-        <property name="swconfigId" type="int">
-            <column name="SWconfigID" not-null="true" />
-        </property>
-        <property name="hwconfigId" type="int">
-            <column name="HWconfigID" not-null="true" />
-        </property>
-        <property name="caseId" type="int">
-            <column name="CaseID" not-null="true" />
-        </property>
+        
+        <many-to-one name="product" class="com.model.Product" fetch="join">
+        <column name="ProductID" not-null="true"/>
+        </many-to-one>
+        
+        <many-to-one name="tcase" class="com.model.TestCase" fetch="join">
+        <column name="CaseID" not-null="true"/>
+        </many-to-one>
+        
+        <many-to-one name="swConfig" class="com.model.SwConfig" fetch="join">
+        <column name="SWconfigID" not-null="true"/>
+        </many-to-one>
+        
+        <many-to-one name="hwConfig" class="com.model.HwConfig" fetch="join">
+        <column name="HWconfigID" not-null="true"/>
+        </many-to-one>
+        
     </class>
 </hibernate-mapping>

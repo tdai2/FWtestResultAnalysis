@@ -10,6 +10,7 @@ public class Product implements java.io.Serializable {
 	//product name
 	private String production;	
 	private Set<TestCase> testcases=new HashSet<TestCase>();
+	private Set<TestResult> results=new HashSet<TestResult>();
 	
 	public Product() {
 	}
@@ -51,5 +52,14 @@ public class Product implements java.io.Serializable {
 	public void settestcases(Set<TestCase> testcases) {
 		this.testcases = testcases;
 	}
+	
+	public Set<TestResult> getResults() {
+		return this.results;
+	}
+
+	public void setResults(Set<TestResult> results) {
+		this.results = results;
+	}
+
 	
 }

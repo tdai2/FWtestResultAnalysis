@@ -12,15 +12,18 @@ public class TestCase implements java.io.Serializable {
 	private String testTitle;
 	private String testCaseVersion;
 	private Set<Product> products=new HashSet<Product>();
+	private Set<TestResult> results=new HashSet<TestResult>();
 
 	public TestCase() {
 	}
 
-	public TestCase(String testCatagory, String testTitle, String testCaseVersion, int productId, Set<Product> products) {
+	public TestCase(String testCatagory, String testTitle, String testCaseVersion, int productId, Set<Product> products,Set<TestResult> results) {
+		this.results=results;
 		this.testCatagory = testCatagory;
 		this.testTitle = testTitle;
 		this.testCaseVersion = testCaseVersion;
 		this.products=products; 
+		
 	}
 
 	public Integer getId() {
@@ -63,6 +66,13 @@ public class TestCase implements java.io.Serializable {
 		this.products = products;
 	}
 
+	public Set<TestResult> getResults() {
+		return this.results;
+	}
+
+	public void setResults(Set<TestResult> results) {
+		this.results = results;
+	}
 
 
 }

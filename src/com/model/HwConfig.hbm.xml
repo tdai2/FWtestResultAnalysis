@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Oct 19, 2015 2:31:40 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="HwConfig" table="hw_config" catalog="fwtestresult" optimistic-lock="version">
+    <class name="com.model.HwConfig" table="hw_config" catalog="fwtestresult" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
             <column name="ID" />
             <generator class="identity" />
@@ -29,5 +29,11 @@
         <property name="memory" type="string">
             <column name="Memory" length="10" />
         </property>
+        <set name="results" table="testresult">
+            <key>
+                <column name="CaseID" />
+            </key>
+            <one-to-many class="com.model.TestResult"/>
+        </set>
     </class>
 </hibernate-mapping>

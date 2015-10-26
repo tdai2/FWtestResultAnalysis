@@ -34,5 +34,8 @@
 	<mapping resource="com/model/User.hbm.xml" />
 	<mapping resource="com/model/Product.hbm.xml" />
 	<mapping resource="com/model/Testcase.hbm.xml" />
+	<mapping resource="com/model/TestResult.hbm.xml" />
+	<mapping resource="com/model/SwConfig.hbm.xml" />
+	<mapping resource="com/model/HwConfig.hbm.xml" />
 </session-factory>
 </hibernate-configuration>

@@ -24,5 +24,12 @@
             </key>
             <many-to-many class="com.model.Product" column="productID"/>
         </set>
+        
+        <set name="results" table="testresult">
+            <key>
+                <column name="CaseID" />
+            </key>
+            <one-to-many class="com.model.TestResult"/>
+        </set>
     </class>
 </hibernate-mapping>
