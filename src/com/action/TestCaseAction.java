@@ -1,6 +1,7 @@
 package com.action;
 
-import java.util.List;
+import java.util.*;
+
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -10,6 +11,8 @@ import org.hibernate.Session;
 import com.dao.BookDao;
 import com.dao.TestCaseDao;
 import com.model.Book;
+import com.model.Product;
+import com.dao.ProductDao;
 import com.model.HibernateSessionFactory;
 import com.model.TestCase;
 import com.opensymphony.xwork2.ActionContext;
@@ -36,6 +39,9 @@ public class TestCaseAction extends ActionSupport{
 	}
 	
 	public String toAddTestCase()throws Exception{
+		ActionContext context=ActionContext.getContext();
+		List<Product> productList=ProductDao.getProductList();
+		context.put("productList", productList);
 		return "toAddTestCase";
 	}
 	public String addTestCase()throws Exception{
@@ -44,11 +50,21 @@ public class TestCaseAction extends ActionSupport{
 		String catagory=request.getParameter("catagory");
 		String title=request.getParameter("Title");
 		String version=request.getParameter("Version");
-		String pID=request.getParameter("pID");
-		TestCaseDao.addTestCase(catagory,title,version,Integer.parseInt(pID));
+		String[] products = request.getParameterValues("pList");
+		TestCaseDao.addTestCase(catagory,title,version,getProductSet(products));
 		List<TestCase> testCaseList=TestCaseDao.getTestCaseList();
 		context.put("testCaseList", testCaseList);
 		return "testCaseList";
+	}
+	public Set<Product> getProductSet(String[] pID){
+		Set<Product> product = new HashSet<Product> (); 
+		System.out.println("In getProductSet");
+		for(int i=0;i<pID.length;i++){
+			product.add(ProductDao.getProduct(Integer.parseInt(pID[i])));
+			
+		}
+		System.out.println("Current pId is "+product.toString());
+		return product;
 	}
 	
 	public String showTestCaseList()throws Exception{
@@ -56,7 +72,8 @@ public class TestCaseAction extends ActionSupport{
 	
 		List<TestCase> testCaseList=TestCaseDao.getTestCaseList();
 		context.put("testCaseList", testCaseList);
-		
+		List<Product> productList=ProductDao.getProductList();
+		context.put("productList",productList);
 		return "testCaseList";
 	}
 
@@ -67,8 +84,8 @@ public class TestCaseAction extends ActionSupport{
 		String catagory=request.getParameter("testCatagory");
 		String title=request.getParameter("testTitle");
 		String version=request.getParameter("testCaseVersion");
-		String pID=request.getParameter("productID");
-		TestCaseDao.editTestCase(catagory,title,version,Integer.parseInt(pID),id);
+		String[] products = request.getParameterValues("pList");
+		TestCaseDao.editTestCase(catagory,title,version,getProductSet(products),id);
 		List<TestCase> testCaseList=TestCaseDao.getTestCaseList();
 		context.put("testCaselist", testCaseList);
 		return "testCaseList";

@@ -1,4 +1,4 @@
-
+package com.model;
 // default package
 // Generated Oct 19, 2015 2:31:40 PM by Hibernate Tools 4.3.1
 

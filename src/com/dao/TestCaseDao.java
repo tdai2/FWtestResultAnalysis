@@ -1,6 +1,6 @@
 package com.dao;
 
-import java.util.List;
+import java.util.*;
 
 import javax.jws.soap.SOAPBinding.Use;
 
@@ -10,6 +10,10 @@ import org.hibernate.criterion.Restrictions;
 
 import com.model.HibernateSessionFactory;
 import com.model.TestCase;
+
+import javassist.bytecode.Descriptor.Iterator;
+
+import com.model.Product;
 
 public class TestCaseDao {
 
@@ -30,21 +34,23 @@ public class TestCaseDao {
 		
 	}
 	
-	public static void addTestCase(String TestCatagory, String TestTitle, String TestCaseVersion,int ProductID)
+	public static void addTestCase(String TestCatagory, String TestTitle, String TestCaseVersion,Set<Product> products)
 	{
 		Session session=HibernateSessionFactory.getSession();
 		TestCase testcase=new TestCase();
+		//Set<Product> ps=new HashSet<Product>();
 		testcase.setTestCatagory(TestCatagory);
 		testcase.setTestTitle(TestTitle);
 		testcase.setTestCaseVersion(TestCaseVersion);
-		testcase.setProductId(ProductID);
-		
+		testcase.setProducts(products);
+		//testcase.setProductId(ProductID);
 		try {
 			session.beginTransaction();		
 			session.save(testcase);
 			session.getTransaction().commit();
 			session.clear();
 			session.close();
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -52,7 +58,38 @@ public class TestCaseDao {
 		
 	}
 	
-	public static void editTestCase(String TestCatagory, String TestTitle, String TestCaseVersion,int ProductID,String id)
+	public static void addCaseToProduct(TestCase tCase,Set <Product>pList){
+		Session session = HibernateSessionFactory.getSession();
+		session.beginTransaction();
+		 System.out.println("In addCaseToProduct");
+		try
+		{
+			System.out.println("tcase is "+tCase.getId());
+			TestCase sCase = new TestCase();
+			sCase=(TestCase) session.get("com.model.TestCase", tCase.getId());
+			
+			System.out.println("sCase is "+sCase.getId());
+			Product product1 = new Product();
+			for(Product product : pList)
+			{
+				//System.out.println("product ID is "+product.getId());
+				//product1=(Product) session.get("com.model.Product", product.getId());
+				//System.out.println("product1 ID is "+product1.getId());
+				//System.out.println("sCase is "+sCase.getId());
+				//sCase.getProducts().add(product);
+				 	
+			}
+	
+		session.getTransaction().commit();
+		session.clear();
+		session.close();}
+		catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+	}
+		}
+	
+	public static void editTestCase(String TestCatagory, String TestTitle, String TestCaseVersion,Set <Product> products,String id)
 	{
 		Session session=HibernateSessionFactory.getSession();
 		TestCase testcase=new TestCase();
@@ -60,7 +97,9 @@ public class TestCaseDao {
 		testcase.setTestCatagory(TestCatagory);
 		testcase.setTestTitle(TestTitle);
 		testcase.setTestCaseVersion(TestCaseVersion);
-		testcase.setProductId(ProductID);
+		testcase.setProducts(products);
+		products.
+		//testcase.setProductId(ProductID);
 		try {
 			session.beginTransaction();		
 			session.update(testcase);
@@ -99,7 +138,7 @@ public class TestCaseDao {
 		testcase.setTestCatagory(TestCatagory);
 		testcase.setTestTitle(TestTitle);
 		testcase.setTestCaseVersion(TestCaseVersion);
-		testcase.setProductId(ProductID);
+		//testcase.setProductId(ProductID);
 		try {
 			
 			session.save(testcase);

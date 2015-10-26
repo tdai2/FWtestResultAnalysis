@@ -18,8 +18,11 @@
         <property name="testCaseVersion" type="string">
             <column name="TestCaseVersion" length="5" not-null="true" />
         </property>
-        <property name="productId" type="int">
-            <column name="ProductID" not-null="true" />
-        </property>
+        <set name="products" table="case_product">
+            <key>
+                <column name="caseID" />
+            </key>
+            <many-to-many class="com.model.Product" column="productID"/>
+        </set>
     </class>
 </hibernate-mapping>

@@ -148,7 +148,7 @@ a            { color:#0000ff; text-decoration: none; }
 						</td>
 						<td bgcolor="#ffffff" width="200px">			
 							 <div class="style2">
-								<s:textfield name="pID" theme="simple"></s:textfield>
+							 <s:checkboxlist name="pList" list="#request.productList"  listValue="production" listKey="id"  />
 							 </div>
 						</td>
 						

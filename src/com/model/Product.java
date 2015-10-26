@@ -1,4 +1,6 @@
 package com.model;
+import java.util.*;
+
 public class Product implements java.io.Serializable {
 	
 	//user ID
@@ -7,14 +9,16 @@ public class Product implements java.io.Serializable {
 	private String family;
 	//product name
 	private String production;	
+	private Set<TestCase> testcases=new HashSet<TestCase>();
 	
 	public Product() {
 	}
 	
-	public Product(String family, String production) {
+	public Product(String family, String production,Set<TestCase> testcases) {
 		this.family = family;
 		this.production = production;
-	}
+		this.testcases = testcases;
+ 	}
 
 	public Integer getId() {
 		return this.id;
@@ -38,6 +42,14 @@ public class Product implements java.io.Serializable {
 
 	public void setProduction(String production) {
 		this.production = production;
+	}
+	
+	public Set<TestCase> gettestcases() {
+		return this.testcases;
+	}
+
+	public void settestcases(Set<TestCase> testcases) {
+		this.testcases = testcases;
 	}
 	
 }

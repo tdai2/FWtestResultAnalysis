@@ -17,5 +17,12 @@
         <property name="production" type="java.lang.String">
             <column name="production" length="15" not-null="true" />
         </property>
+        
+        <set name="testcases" table="case_product" inverse="true">
+            <key>
+                <column name="productID" />
+            </key>
+            <many-to-many class="com.model.TestCase" column="caseID" />
+        </set>
     </class>
 </hibernate-mapping>

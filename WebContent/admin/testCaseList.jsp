@@ -166,7 +166,7 @@ body {
 									</td>
 									<td bgcolor="#ffffff" align="center">
 										<div class="style3">
-											<s:property value="#testcase.productId"></s:property>
+										<s:property value="#testcase.products.foreach(getPdroduction)"></s:property>
 										</div>
 									</td>
 									<td bgcolor="#ffffff" align="center">
