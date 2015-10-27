@@ -18,7 +18,7 @@
             <column name="production" length="15" not-null="true" />
         </property>
         
-        <set name="testcases" table="case_product" inverse="true">
+        <set name="testcases" table="case_product" inverse="true" lazy="false">
             <key>
                 <column name="productID" />
             </key>

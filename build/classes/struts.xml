@@ -29,6 +29,7 @@
 		
 		<action name="TestResultAction" class="com.action.TestResultAction">
 			<result name="testResultList">/admin/testResultList.jsp</result>
+			<result name="toChooseProduct">/admin/chooseProduct.jsp</result>
 			<result name="toAddTestResult">/admin/addTestResult.jsp</result>
 			<result name="editTestCase">/admin/editProduct.jsp</result>	
 		</action>

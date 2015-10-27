@@ -13,7 +13,6 @@ import com.model.*;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
-
 public class TestResultAction extends ActionSupport{
 	private static final long serialVersionUID = 1L;
 	@Override
@@ -33,20 +32,49 @@ public class TestResultAction extends ActionSupport{
 		return "testResultList";
 	}
 	
+	public String toChooseProduct()throws Exception{
+		ActionContext context=ActionContext.getContext();
+		List<Product> productList=ProductDao.getProductList();
+		context.put("productList", productList);
+		return "toChooseProduct";
+	}
+	
 	public String toAddTestResult()throws Exception{
 		ActionContext context=ActionContext.getContext();
-		List<Product> resultList=ProductDao.getProductList();
-		context.put("resultList", resultList);
+		HttpServletRequest request=ServletActionContext.getRequest();
+		System.out.println("In to addTestResult");
+		Product product=new Product();
+		System.out.println("PId is "+Integer.parseInt(request.getParameter("product")));
+		product=ProductDao.getProduct(Integer.parseInt(request.getParameter("product")));
+		System.out.println("product ID is "+product.getId());
+		//System.out.println(product.gettestcases());
+		context.put("caseList", product.gettestcases());
+		context.put("product",product.getProduction());
 		return "toAddTestResult";
 	}
+	
 	public String addTestResult()throws Exception{
 		ActionContext context=ActionContext.getContext();
 		HttpServletRequest request=ServletActionContext.getRequest();
-		String catagory=request.getParameter("catagory");
-		String title=request.getParameter("Title");
-		String version=request.getParameter("Version");
-		String[] results = request.getParameterValues("pList");
-		//TestResultDao.addTestResult(catagory,title,version,getProductSet(results));
+		//Add SoftWare configuration 
+		String BMC=request.getParameter("BMC");
+		String FRUSDR=request.getParameter("FRUSDR");
+		String HSC=request.getParameter("HSC");
+		String PSUFW=request.getParameter("PSUFW");
+		String BIOS=request.getParameter("BIOS");
+		String ME=request.getParameter("ME");
+		SwConfigDao.addSwConfig(BMC,FRUSDR,HSC,PSUFW,BIOS,ME);
+		//Add HardWare configuration		
+		String SKU=request.getParameter("bbSKU");
+		String Fab=request.getParameter("Fab");
+		String Chassis=request.getParameter("Chassis");
+		String HSBP=request.getParameter("HSBP");
+		String PSU=request.getParameter("PSU");
+		String CPU=request.getParameter("CPU");
+		String Memory=request.getParameter("Memory");
+		HwConfigDao.addHwConfig(SKU, Fab, Chassis, HSBP, PSU, CPU, Memory);
+		
+		
 		List<TestResult> testResultList=TestResultDao.getTestResultList();
 		context.put("testResultList", testResultList);
 		return "testResultList";

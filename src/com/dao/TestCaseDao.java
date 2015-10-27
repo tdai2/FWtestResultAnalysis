@@ -98,7 +98,7 @@ public class TestCaseDao {
 		testcase.setTestTitle(TestTitle);
 		testcase.setTestCaseVersion(TestCaseVersion);
 		testcase.setProducts(products);
-		products.
+		
 		//testcase.setProductId(ProductID);
 		try {
 			session.beginTransaction();		
