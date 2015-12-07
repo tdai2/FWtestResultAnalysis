@@ -7,11 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.ServletActionContext;
 import org.hibernate.Session;
 
-import com.dao.BookDao;
-import com.dao.ProductDao;
-import com.model.Book;
-import com.model.HibernateSessionFactory;
-import com.model.Product;
+import com.dao.*;
+import com.model.*;
+
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -76,7 +74,16 @@ public class ProductAction extends ActionSupport{
 		String id=request.getParameter("id");
 		Product product=ProductDao.getProduct(Integer.parseInt(id));
 		context.put("product", product);
+		List<TestCase> testCaseList=TestCaseDao.getTestCaseList();
+		context.put("testCaseList", testCaseList);
 	    return "editProduct";
     }
     
+    public String editProductionCase()throws Exception{
+		return "editProductionCase";
+	}
+    
+    public String ProductionCaseManagement()throws Exception{  
+    	return "editProduct";
+    }
 }

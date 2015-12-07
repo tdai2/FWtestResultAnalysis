@@ -18,7 +18,8 @@
 		<action name="productaction" class="com.action.ProductAction">
 			<result name="product">/admin/productList.jsp</result>
 			<result name="toAddProduct">/admin/addProduct.jsp</result>
-			<result name="editProduct">/admin/editProduct.jsp</result>	
+			<result name="editProduct">/admin/editProduct.jsp</result>
+				
 		</action>
 		
 		<action name="TestCaseAction" class="com.action.TestCaseAction">

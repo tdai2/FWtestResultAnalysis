@@ -99,12 +99,24 @@ body {
       </ul>
     </li>
     <li>
+         <a class="head">Production Management</a>
+      <ul>
+        <li><a href="productaction!showProductList.action" target="rightFrame">Production Management</a></li>
+        <li><a href="productaction!showProductionCase.action" target="rightFrame">Production Case set Management</a></li>
+      </ul>
+    </li>
+    
+    <li>
          <a class="head">Test Result Management</a>
       <ul>
-        <li><a href="TestCaseAction!showTestCaseList.action" target="rightFrame">Test Case Management</a></li>
-        <li><a href="productaction!showProductList.action" target="rightFrame">Production Management</a></li>
         <li><a href="TestResultAction!showTestResultList.action" target="rightFrame">Test result Management</a></li>
         <!--<li><a href="firstpage!adminShowFirstPage.action" target="rightFrame">Add Test Result</a></li>-->
+      </ul>
+    </li>
+    <li>
+         <a class="head">Test Case Management</a>
+      <ul>
+        <li><a href="TestCaseAction!showTestCaseList.action" target="rightFrame">Test Case Management</a></li>
       </ul>
     </li>
      <li> <a class="head">Test Result View</a>

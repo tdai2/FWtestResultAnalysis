@@ -82,15 +82,42 @@ body {
           			<s:form action="productaction" theme="simple">
 					<table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#a8c7ce">
 					<tr>
-						<td bgcolor="#ffffff" align="center" width="150px">
+						<th bgcolor="#ffffff" align="center" width="60px">
 							<div class="style2">ID：</div>
-						</td >
-						<td bgcolor="#ffffff"  width="60px" colspan="2">
+						</th >
+						
+						<th bgcolor="#ffffff" align="center" width="60px">			
+							 <div class="style2">Product</div>
+						</th>
+						<th bgcolor="#ffffff" align="center" width="60px">
+							<div class="style2">Family：</div>
+						</th >
+						<td  bgcolor="#ffffff" align="center">
+							<div class="style2">
+							 <s:submit value="submit" method="editProduct" theme="simple" onclick="return check();"></s:submit>
+							 </div>
+						</td>
+					</tr>
+					<tr>
+					    <td bgcolor="#ffffff"  width="60px" >
 							<div class="style2">
 								<s:property value="#product.id"></s:property>
 							</div>
 						</td >
+							
+						<td bgcolor="#ffffff"  width="60px" >
+							<div class="style2">
+								<s:textfield name="family" value="%{#product.family}" theme="simple"></s:textfield>
+							</div>
+						</td >
+						
+						<td bgcolor="#ffffff"  width="60px" >
+							<div class="style2">
+								<s:textfield name="product" value="%{#product.production}" theme="simple"></s:textfield>
+							</div>
+						</td >
 					</tr>
+<%--					
 					<tr>
 						<td bgcolor="#ffffff" align="center" width="150px">
 							<div class="style2">Family：</div>
@@ -111,14 +138,83 @@ body {
 							</div>
 						</td >
 					</tr>
-										
-					<tr height="50px">
-						<td colspan="2" bgcolor="#ffffff" align="center">
-							<div class="style2">
-							 <s:submit value="submit" method="editProduct" theme="simple" onclick="return check();"></s:submit>
-							 </div>
-						</td>
-					</tr>
+	 --%>							
+	 
+	 <tr>		
+						<tr>
+						
+							<td bgcolor="d3eaef" align="center">
+						    <div class="style2">
+						    ID
+						    </div>
+						    </td>
+						
+							<td bgcolor="d3eaef" align="center">
+						    <div class="style2">
+						    Catagory
+						   </div>
+						   </td>							
+						   						   
+						   <td bgcolor="d3eaef" align="center">
+						   <div class="style2">
+						   Title
+						   </div>
+						   </td>
+						    
+			               <td bgcolor="d3eaef" align="center">
+   				           <div class="style2">
+					       Version
+			   	           </div>
+			               </td>
+			               
+			               <td bgcolor="d3eaef" align="center">
+   				           <div class="style2">
+					       Project
+			   	           </div>
+			               </td>
+			               
+					    </tr>
+	
+
+						<s:iterator var="testcase" value="#request.testCaseList">
+						
+								<tr>
+									<td bgcolor="#ffffff" align="center">
+										<div class="style3">
+										<s:property value="#testcase.id"></s:property>
+										</div>
+									</td>
+
+									<td bgcolor="#ffffff" align="center">
+										<div class="style3">
+											<s:property value="#testcase.testCatagory"></s:property>
+										</div>
+									</td>
+									<td bgcolor="#ffffff" align="center">
+										<div class="style3">
+											<s:property value="#testcase.testTitle"></s:property>
+										</div>
+									</td>
+									<td bgcolor="#ffffff" align="center">
+										<div class="style3">
+											<s:property value="#testcase.testCaseVersion"></s:property>
+										</div>
+									</td>
+									<td bgcolor="#ffffff" align="center">
+										<div class="style3">
+										<s:property value="#testcase.products.foreach(getPdroduction)"></s:property>
+										</div>
+									</td>
+									
+									<td bgcolor="#ffffff" align="center">
+										<div class="style3">
+										<s:property value="#testcase.products.foreach(getPdroduction)"></s:property>
+										</div>
+									</td>
+								</tr>
+						
+						</s:iterator>
+							
 					</table>
 					</s:form>
 				</td>
