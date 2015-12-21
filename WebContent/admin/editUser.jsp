@@ -87,8 +87,8 @@ body {
 						</td >
 						<td bgcolor="#ffffff"  width="60px" colspan="2">
 							<div class="style2">
-								<s:property value="#user.id"></s:property>
-								<s name="id" value="%{#user.id}">
+							<s:property value="#user.id"></s:property>
+								<s:hidden name="id" value="%{#user.id}" theme="simple"></s:hidden>
 							</div>
 						</td >
 					</tr>
@@ -157,7 +157,7 @@ body {
 					<tr height="50px">
 						<td colspan="2" bgcolor="#ffffff" align="center">
 							<div class="style2">
-							 <s:submit value="submit" method="updateUser" theme="simple" onclick="return check();"></s:submit>
+							 <s:submit value="submit" method="editUser" theme="simple" onclick="return check();"></s:submit>
 							 </div>
 						</td>
 					</tr>

@@ -243,31 +243,31 @@ body {
 						<tr>				
 						   <td bgcolor="d3eaef" align="center">
 						   <div class="style2">
-						   Case Title
+						   Case Catagory
 						   </div>
 						   </td>							
 						   						   
 						   <td bgcolor="d3eaef" align="center">
 						   <div class="style2">
-						   Result
+						   Case Title
 						   </div>
 						   </td>
 						    
 			               <td bgcolor="d3eaef" align="center">
    				           <div class="style2">
-					       BMC version
+					       Test result
 			   	           </div>
 			               </td>
 			               
 			               <td bgcolor="d3eaef" align="center">
    				           <div class="style2">
-					       FRUSDR version
+					       Tracker Number
 			   	           </div>
 			               </td>
 			               
 			               <td bgcolor="d3eaef" align="center">
    				           <div class="style2">
-					       Board SKU
+					       Notes
 			   	           </div>
 			               </td>
 			               

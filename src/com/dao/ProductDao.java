@@ -1,6 +1,6 @@
 package com.dao;
 
-import java.util.List;
+import java.util.*;
 
 import javax.jws.soap.SOAPBinding.Use;
 
@@ -8,8 +8,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
-import com.model.HibernateSessionFactory;
-import com.model.Product;
+import com.model.*;
 
 public class ProductDao {
 	
@@ -56,7 +55,33 @@ public class ProductDao {
 		product.setId(Integer.parseInt(id));
 		product.setFamily(family);
 		product.setProduction(production);
+		try {
+			session.beginTransaction();		
+			session.update(product);
+			session.getTransaction().commit();
+			session.clear();
+			session.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 		
+	}
+	
+	public static void editProductCase(String pid, String family, String production, Set<TestCase> testcases,Set<TestResult> results)
+	{
+		Session session=HibernateSessionFactory.getSession();
+		Product product=new Product();
+		product.setId(Integer.parseInt(pid));
+		product.settestcases(testcases);
+		product.setFamily(family);
+		product.setProduction(production);
+		product.setResults(results);
+		System.out.println("production");
+		Iterator<TestCase> t= product.gettestcases().iterator();  
+		  while (t.hasNext()) {    ; 
+		   System.out.println(t.next().getId());    
+		  }
 		try {
 			session.beginTransaction();		
 			session.update(product);
@@ -74,7 +99,6 @@ public class ProductDao {
 	{
 		Session session=HibernateSessionFactory.getSession();
 		try {
-			
 			Criteria criteria=session.createCriteria(Product.class);
 			
 			List<Product> products=criteria.list();

@@ -17,6 +17,48 @@ public class TestCase implements java.io.Serializable {
 	public TestCase() {
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		// TODO Auto-generated method stub
+		//System.out.println("in equals"+o);
+		 if(o == null)
+	        {
+			 System.out.println(" o == null");
+	            return false;
+	        }
+	        if (o == this)
+	        {
+	        	System.out.println(" o == this");
+	           return true;
+	        }
+	        if (getClass() != o.getClass())
+	        {
+	        	System.out.println("getClass() != o.getClass()");
+	            return false;
+	        }
+	        TestCase e = (TestCase) o;
+	        /*
+	        System.out.println("this.getId() == e.getId())");
+	        System.out.println(this.getId());
+	        System.out.println(e.getId());
+	        System.out.println(this.getId() == e.getId());
+	        */
+	        int i,j;
+	        i= this.getId();
+	        j=e.getId();
+	        
+	        return (i==j);
+	}
+
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+	    final int PRIME = 31;
+	    int result = 1;
+	    result = PRIME * result + getId();
+	    return result;
+	}
+
 	public TestCase(String testCatagory, String testTitle, String testCaseVersion, int productId, Set<Product> products,Set<TestResult> results) {
 		this.results=results;
 		this.testCatagory = testCatagory;

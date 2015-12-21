@@ -92,16 +92,13 @@ body {
 						<th bgcolor="#ffffff" align="center" width="60px">
 							<div class="style2">Family：</div>
 						</th >
-						<td  bgcolor="#ffffff" align="center">
-							<div class="style2">
-							 <s:submit value="submit" method="editProduct" theme="simple" onclick="return check();"></s:submit>
-							 </div>
-						</td>
+						
 					</tr>
 					<tr>
 					    <td bgcolor="#ffffff"  width="60px" >
 							<div class="style2">
 								<s:property value="#product.id"></s:property>
+								<s:hidden name="pid" value="%{#product.id}" theme="simple"></s:hidden>
 							</div>
 						</td >
 							
@@ -113,34 +110,22 @@ body {
 						
 						<td bgcolor="#ffffff"  width="60px" >
 							<div class="style2">
-								<s:textfield name="product" value="%{#product.production}" theme="simple"></s:textfield>
+								<s:textfield name="production" value="%{#product.production}" theme="simple"></s:textfield>
 							</div>
 						</td >
-					</tr>
-<%--					
-					<tr>
-						<td bgcolor="#ffffff" align="center" width="150px">
-							<div class="style2">Family：</div>
-						</td >
-						<td bgcolor="#ffffff"  width="60px" colspan="2">
+						<td  bgcolor="#ffffff" align="center">
 							<div class="style2">
-								<s:textfield name="family" value="%{#product.family}" theme="simple"></s:textfield>
-							</div>
-						</td >
-					</tr>
-					<tr>
-						<td bgcolor="#ffffff" align="center" width="200px">			
-							 <div class="style2">Product</div>
+							 <s:submit value="submit" method="editProduct" theme="simple" onclick="return check();"></s:submit>
+							 </div>
 						</td>
-						<td bgcolor="#ffffff"  width="60px" colspan="2">
-							<div class="style2">
-								<s:textfield name="product" value="%{#product.production}" theme="simple"></s:textfield>
-							</div>
-						</td >
 					</tr>
-	 --%>							
-	 
-	 <tr>		
+		
+	                 </table>
+					</s:form>
+		
+					<s:form action="productaction" theme="simple">
+					<table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#a8c7ce">
+	 				<tr>		
 						<tr>
 						
 							<td bgcolor="d3eaef" align="center">
@@ -169,59 +154,109 @@ body {
 			               
 			               <td bgcolor="d3eaef" align="center">
    				           <div class="style2">
-					       Project
+					       Case included in Project or not
+			   	           </div>
+			               </td>
+			               
+			               <td bgcolor="d3eaef" align="center">
+   				           <div class="style2">
+					       Change
 			   	           </div>
 			               </td>
 			               
 					    </tr>
 	
-
-						<s:iterator var="testcase" value="#request.testCaseList">
-						
+						<s:hidden name="pid" value="%{#product.id}" theme="simple"></s:hidden>
+						<s:iterator var="caseNotIncluded" value="#request.caseNotIncluded">
 								<tr>
 									<td bgcolor="#ffffff" align="center">
 										<div class="style3">
-										<s:property value="#testcase.id"></s:property>
+										<s:property value="#caseNotIncluded.id"></s:property>										
 										</div>
 									</td>
 
 									<td bgcolor="#ffffff" align="center">
 										<div class="style3">
-											<s:property value="#testcase.testCatagory"></s:property>
+											<s:property value="#caseNotIncluded.testCatagory"></s:property>
 										</div>
 									</td>
 									<td bgcolor="#ffffff" align="center">
 										<div class="style3">
-											<s:property value="#testcase.testTitle"></s:property>
+											<s:property value="#caseNotIncluded.testTitle"></s:property>
 										</div>
 									</td>
 									<td bgcolor="#ffffff" align="center">
 										<div class="style3">
-											<s:property value="#testcase.testCaseVersion"></s:property>
+											<s:property value="#caseNotIncluded.testCaseVersion"></s:property>
 										</div>
 									</td>
 									<td bgcolor="#ffffff" align="center">
 										<div class="style3">
-										<s:property value="#testcase.products.foreach(getPdroduction)"></s:property>
+									 
+									<s:checkbox name="notIncluded" value="false" fieldValue="included" />  
+										</div>
+									</td>
+									<td bgcolor="#ffffff" align="center">
+										<div class="style3">
+									<s:hidden name="cid" value="%{#caseNotIncluded.id}" theme="simple"></s:hidden>									
+									<s:submit value="add to product" method="addProductCase" theme="simple" onclick="return check();"></s:submit>
+										</div>
+									</td>
+									 
+								</tr>
+						</s:iterator>
+						
+						<s:iterator var="caseIncluded" value="#request.caseIncluded">
+								<tr>
+									<td bgcolor="#ffffff" align="center">
+										<div class="style3">
+										<s:property value="#caseIncluded.id" />
+										</div>
+									</td>
+
+									<td bgcolor="#ffffff" align="center">
+										<div class="style3">
+											<s:property value="#caseIncluded.testCatagory"></s:property>
+										</div>
+									</td>
+									<td bgcolor="#ffffff" align="center">
+										<div class="style3">
+											<s:property value="#caseIncluded.testTitle"></s:property>
+										</div>
+									</td>
+									<td bgcolor="#ffffff" align="center">
+										<div class="style3">
+											<s:property value="#caseIncluded.testCaseVersion"></s:property>
+										</div>
+									</td>
+									<td bgcolor="#ffffff" align="center">
+										<div class="style3">
+										<s:checkbox name="Included"  value="true" fieldValue="included"/>
 										</div>
 									</td>
 									
 									<td bgcolor="#ffffff" align="center">
 										<div class="style3">
-										<s:property value="#testcase.products.foreach(getPdroduction)"></s:property>
+									<!--<s:hidden name="rid" value="#caseIncluded.id" theme="simple"></s:hidden>-->	
+									<!-- <s:hidden name="rid" value="%{#caseIncluded.id}" theme="simple"></s:hidden> -->
+									
+									<!-- <s:set var="rid" value="#caseIncluded.id" /> --> 
+									<s:submit value="delete from product" method="removeProductCase" theme="simple" onclick="return check();">
+									<s:hidden name="rid" value="%{#caseIncluded.id}" theme="simple"></s:hidden>
+									</s:submit>
+									
 										</div>
-									</td>
 								</tr>
-						
-						</s:iterator>
+							</s:iterator>
+							 
 							
 					</table>
 					</s:form>
 				</td>
           
           </tr>
-						
+		
 </table>
-
+ 
 	</body>
 </html>

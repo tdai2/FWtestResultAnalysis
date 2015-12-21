@@ -91,8 +91,11 @@ public class UserAction extends ActionSupport{
     public String editUser()throws Exception{
     	ActionContext context=ActionContext.getContext();
 		HttpServletRequest request=ServletActionContext.getRequest();
+		
 		String id = request.getParameter("id");
+		//System.out.println(id);
 		String name=request.getParameter("name");
+		//System.out.println(name);
 		String pwd=request.getParameter("pwd");
 		String uType=request.getParameter("uType");
 		String email=request.getParameter("email");
