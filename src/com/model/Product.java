@@ -11,7 +11,6 @@ public class Product implements java.io.Serializable {
 	private String production;	
 	private Set<TestCase> testcases=new HashSet<TestCase>();
 	private Set<TestResult> results=new HashSet<TestResult>();
-	
 	public Product() {
 	}
 	

@@ -51,10 +51,8 @@ body {
 	color: #295568;
 }
 </style>
-
-
     <script type="text/javascript">
-    
+        var cid;
     	function check(){
     		var name=document.getElementById("name");
     		if(name=="")
@@ -70,6 +68,15 @@ body {
     		}
     		return true;
     	}
+
+    	function selectRow(tr)
+    	{
+        	var cid = tr.cells[0].innerText;
+        	//alert("cid="+cid);
+            document.getElementById("cid").value=cid;            
+        	}
+
+		</script>
     </script>
     
 	</head>
@@ -98,7 +105,7 @@ body {
 					    <td bgcolor="#ffffff"  width="60px" >
 							<div class="style2">
 								<s:property value="#product.id"></s:property>
-								<s:hidden name="pid" value="%{#product.id}" theme="simple"></s:hidden>
+								<s:hidden id= "pid" name="pid" value="%{#product.id}" theme="simple"></s:hidden>
 							</div>
 						</td >
 							
@@ -167,8 +174,9 @@ body {
 					    </tr>
 	
 						<s:hidden name="pid" value="%{#product.id}" theme="simple"></s:hidden>
+						<s:hidden id="cid" name="cid"  theme="simple"></s:hidden>
 						<s:iterator var="caseNotIncluded" value="#request.caseNotIncluded">
-								<tr>
+								<tr onclick = "selectRow(this)">
 									<td bgcolor="#ffffff" align="center">
 										<div class="style3">
 										<s:property value="#caseNotIncluded.id"></s:property>										
@@ -196,9 +204,8 @@ body {
 									<s:checkbox name="notIncluded" value="false" fieldValue="included" />  
 										</div>
 									</td>
-									<td bgcolor="#ffffff" align="center">
-										<div class="style3">
-									<s:hidden name="cid" value="%{#caseNotIncluded.id}" theme="simple"></s:hidden>									
+									<td bgcolor="#ffffff" align="center" >
+										<div class="style3">	
 									<s:submit value="add to product" method="addProductCase" theme="simple" onclick="return check();"></s:submit>
 										</div>
 									</td>
@@ -207,7 +214,7 @@ body {
 						</s:iterator>
 						
 						<s:iterator var="caseIncluded" value="#request.caseIncluded">
-								<tr>
+								<tr onclick = "selectRow(this)">
 									<td bgcolor="#ffffff" align="center">
 										<div class="style3">
 										<s:property value="#caseIncluded.id" />
@@ -237,12 +244,7 @@ body {
 									
 									<td bgcolor="#ffffff" align="center">
 										<div class="style3">
-									<!--<s:hidden name="rid" value="#caseIncluded.id" theme="simple"></s:hidden>-->	
-									<!-- <s:hidden name="rid" value="%{#caseIncluded.id}" theme="simple"></s:hidden> -->
-									
-									<!-- <s:set var="rid" value="#caseIncluded.id" /> --> 
 									<s:submit value="delete from product" method="removeProductCase" theme="simple" onclick="return check();">
-									<s:hidden name="rid" value="%{#caseIncluded.id}" theme="simple"></s:hidden>
 									</s:submit>
 									
 										</div>

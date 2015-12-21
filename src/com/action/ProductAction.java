@@ -49,10 +49,8 @@ public class ProductAction extends ActionSupport{
 	
 	public String showProductList()throws Exception{
 		ActionContext context=ActionContext.getContext();
-	
 		List<Product> productList=ProductDao.getProductList();
-		context.put("productlist", productList);
-		
+		context.put("productlist", productList);		
 		return "product";
 	}
 
@@ -76,12 +74,21 @@ public class ProductAction extends ActionSupport{
 		String pid = request.getParameter("pid");
 		String cid = request.getParameter("cid");
 		
-		 //System.out.println("cid is "+cid);
-		 //System.out.println("pid is "+pid);
+		int temp = 0;
+		 System.out.println("In addProductCase. cid is "+cid);
+		System.out.println("pid lenght is "+pid.length());
+		System.out.println("cid lenght is "+cid.length());
 		Product product=ProductDao.getProduct(Integer.parseInt(pid));
 		String family= product.getFamily();
 		String production = product.getProduction();
-		TestCase testcase=TestCaseDao.getTestCase(Integer.parseInt(cid));
+		
+		cid = cid.substring(0, cid.length()-2);
+		
+		
+		System.out.println("cid lenght is "+cid.length());
+		temp = Integer.parseInt(cid);
+		 System.out.println("tmep = "+ temp);
+		TestCase testcase=TestCaseDao.getTestCase(temp);
 		Set<TestCase> testcases=product.gettestcases();
 		Set<TestResult> testResults=product.getResults();
 		 testcases.add(testcase);
@@ -89,21 +96,18 @@ public class ProductAction extends ActionSupport{
 		ProductDao.editProductCase(pid,family,production,testcases,testResults);
 		toEditProduct(pid);
 		return "editProduct";
-		
     }
     
     public String removeProductCase()throws Exception{
     	ActionContext context=ActionContext.getContext();
 		HttpServletRequest request=ServletActionContext.getRequest();
 		String pid = request.getParameter("pid");
-		String cid = request.getParameter("rid");
+		String cid = request.getParameter("cid");
+		cid = cid.substring(0, cid.length()-2);
 		Enumeration params = request.getParameterNames();
-        while (params.hasMoreElements()) {
-            System.out.println(params.nextElement());
-        }
-		
+        
 		 System.out.println("cid is "+cid);
-		 System.out.println(request.getParameterValues("rid"));
+		
 		 //System.out.println("pid is "+pid);
 		Product product=ProductDao.getProduct(Integer.parseInt(pid));
 		String family= product.getFamily();
