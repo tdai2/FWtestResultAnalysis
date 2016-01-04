@@ -167,10 +167,9 @@ body {
 			               
 			               <td bgcolor="d3eaef" align="center">
    				           <div class="style2">
-					       Change
+					       add result
 			   	           </div>
 			               </td>
-			               
 					    </tr>
 	
 						<s:hidden name="pid" value="%{#product.id}" theme="simple"></s:hidden>

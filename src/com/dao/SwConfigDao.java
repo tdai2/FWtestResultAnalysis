@@ -28,7 +28,7 @@ public class SwConfigDao {
 		}
 		
 	}
-	public static void addSwConfig(String BMC, String FRUSDR, String PSU, String HSC, String BIOS, String ME )
+	public static int addSwConfig(String BMC, String FRUSDR, String PSU, String HSC, String BIOS, String ME )
 	{
 		Session session=HibernateSessionFactory.getSession();
 		SwConfig swConfig=new SwConfig();
@@ -45,14 +45,15 @@ public class SwConfigDao {
 			session.getTransaction().commit();
 			session.clear();
 			session.close();
+			 
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-		
+		return swConfig.getId();
 	}
 	
-	public static void editSwConfig(String id,String BMC, String FRUSDR, String PSU, String HSC, String BIOS, String ME )
+	public int editSwConfig(String id,String BMC, String FRUSDR, String PSU, String HSC, String BIOS, String ME )
 	{
 		Session session=HibernateSessionFactory.getSession();
 		SwConfig swConfig=new SwConfig();
@@ -73,7 +74,7 @@ public class SwConfigDao {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-		
+		return swConfig.getId();
 	}
 	
 	public static List<SwConfig> getSwConfigList()

@@ -28,7 +28,7 @@ public class HwConfigDao {
 		}
 		
 	}
-	public static void addHwConfig(String SKU, String Fab, String Chassis, String HSBP, String PSU, String CPU,String Memory)
+	public static int addHwConfig(String SKU, String Fab, String Chassis, String HSBP, String PSU, String CPU,String Memory)
 	{
 		Session session=HibernateSessionFactory.getSession();
 		HwConfig hwConfig=new HwConfig();
@@ -50,7 +50,7 @@ public class HwConfigDao {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-		
+		return hwConfig.getId();
 	}
 	
 	public static void editHwConfig(String id,String SKU, String Fab, String Chassis, String HSBP, String PSU, String CPU,String Memory)

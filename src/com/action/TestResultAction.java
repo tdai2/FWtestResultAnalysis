@@ -63,7 +63,8 @@ public class TestResultAction extends ActionSupport{
 		String PSUFW=request.getParameter("PSUFW");
 		String BIOS=request.getParameter("BIOS");
 		String ME=request.getParameter("ME");
-		SwConfigDao.addSwConfig(BMC,FRUSDR,HSC,PSUFW,BIOS,ME);
+		int swID=SwConfigDao.addSwConfig(BMC,FRUSDR,HSC,PSUFW,BIOS,ME);
+		
 		//Add HardWare configuration		
 		String SKU=request.getParameter("bbSKU");
 		String Fab=request.getParameter("Fab");
@@ -72,8 +73,18 @@ public class TestResultAction extends ActionSupport{
 		String PSU=request.getParameter("PSU");
 		String CPU=request.getParameter("CPU");
 		String Memory=request.getParameter("Memory");
-		HwConfigDao.addHwConfig(SKU, Fab, Chassis, HSBP, PSU, CPU, Memory);
+		int hwID=HwConfigDao.addHwConfig(SKU, Fab, Chassis, HSBP, PSU, CPU, Memory);
 		
+		/*
+		String caseResult=request.getParameter("caseResult");
+		String trackerNO=request.getParameter("trackerNO");
+		String notes=request.getParameter("notes");
+		String pid=request.getParameter("pID");
+		String cid=request.getParameter("caseID");
+		String swID=request.getParameter("caseID");
+		*/
+		
+		//TestResultDao.addTestResult(SKU, Fab, Chassis, HSBP, PSU, CPU, Memory);
 		
 		List<TestResult> testResultList=TestResultDao.getTestResultList();
 		context.put("testResultList", testResultList);

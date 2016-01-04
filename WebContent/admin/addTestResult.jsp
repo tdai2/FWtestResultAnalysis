@@ -10,6 +10,45 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
+	
+	<script type="text/javascript">
+        
+    	function check(){
+    		var name=document.getElementById("name");
+    		if(name=="")
+    		{
+    			alert("Name can't be Empty！");
+    			return false;
+    		}
+    		var name=document.getElementById("uType");
+    		if(uType=="")
+    		{
+    			alert("Type can't be Empty！");
+    			return false;
+    		}
+    		return true;
+    	}
+
+    	function selectRow(tr)
+    	{
+        	var caseID = tr.cells[0].innerText;
+            document.getElementById("caseID").value=caseID;
+            alert("caseID="+caseID);
+            var caseResult = tr.cells[3].innerText;
+            document.getElementById("testResult").value=testResult;
+            alert("testResult="+testResult);
+            var trackerNO = tr.cells[4].innerText;
+            document.getElementById("trackerNO").value=trackerNO;
+            var notes = tr.cells[5].innerText;
+            document.getElementById("notes").value=notes;
+            
+            
+            alert("trackerNO="+trackerNO);
+            alert("notes="+notes);            
+        	}
+
+		</script>
+		
 		<base href="<%=basePath%>">
 
 		<title>'TestCaselist.jsp' starting page</title>
@@ -53,7 +92,8 @@ body {
 </style>
 	</head>
 
-	<body>
+
+<body>
 		<table width="100%" border="0" align="center" cellpadding="0"
 			cellspacing="0">
 			<tr>
@@ -240,7 +280,13 @@ body {
 				<td>
 					<table width="100%" border="0" cellpadding="0" cellspacing="1"
 						bgcolor="#a8c7ce">
-						<tr>				
+						<tr>
+						   <td bgcolor="d3eaef" align="center">
+						   <div class="style2">
+						   Case ID
+						   </div>
+						   </td>		
+						   				
 						   <td bgcolor="d3eaef" align="center">
 						   <div class="style2">
 						   Case Catagory
@@ -273,67 +319,63 @@ body {
 			               
 			               <td bgcolor="d3eaef" align="center">
    				           <div class="style2">
-					       Edit
-			   	           </div>
-			               </td>
-			               
-			               <td bgcolor="d3eaef" align="center">
-   				           <div class="style2">
-					       Delete
+					       Confirm
 			   	           </div>
 			               </td>
 			               
 						</tr>
-	
 
+		
+                        <s:hidden id="caseID" name="caseID"  theme="simple"></s:hidden>
 						<s:iterator var="result" value="#request.caseList">
-						
-								<tr>
+								<tr  onclick = "selectRow(this)">
+									<td bgcolor="#ffffff" align="center">
+										<div class="style3">
+											<s:property value="#result.id" ></s:property>
+										</div>
+									</td>
 
 									<td bgcolor="#ffffff" align="center">
 										<div class="style3">
-											<s:property value="#result.testTitle"></s:property>
-										</div>
-									</td>
-									<td bgcolor="#ffffff" align="center">
-										<div class="style3">
-											<s:property value="#result.testTitle"></s:property>
-										</div>
-									</td>
-									<td bgcolor="#ffffff" align="center">
-										<div class="style3">
-											<s:property value="#result.testTitle"></s:property>
-										</div>
-									</td>
-									<td bgcolor="#ffffff" align="center">
-										<div class="style3">
-											<s:property value="#result.testTitle"></s:property>
-										</div>
-									</td>
-									<td bgcolor="#ffffff" align="center">
-										<div class="style3">
-											<s:property value="#result.testTitle"></s:property>
-										</div>
-									</td>
-									
-									
-									<td bgcolor="#ffffff" align="center">
-										<div class="style3">
-											<s:a action="TestCaseAction" method="toEditTestResult">
-												Edit
-												<s:param name="id">${result.id}</s:param>
-											</s:a>
+											<s:property value="#result.testCatagory"></s:property>
 										</div>
 									</td>
 									
 									<td bgcolor="#ffffff" align="center">
 										<div class="style3">
-											<s:a action="TestCaseAction" method="delTestResult">
-												Delete
-												<s:param name="id">${result.id}</s:param>
-											</s:a>
+											<s:property value="#result.testTitle"></s:property>
 										</div>
 									</td>
+									<td bgcolor="#ffffff" align="center">
+										<div class="style3">
+										<s:select label="testResult"
+										name="testResult"
+										headerKey="No Run" headerVakue="No Run"
+										 list="#{'No Run':'No Run', 'Passed':'Passed', 'Failed':'Failed', 'Blocked':'Blocked',  'N/A':'N/A' }"  
+										 listValue="value" listKey="key"/>
+										</div>
+									</td>
+									
+									<td bgcolor="#ffffff" align="center">
+										<div class="style3">
+										<s:textfield theme="simple"></s:textfield>
+											
+										</div>
+									</td>
+									
+									<td bgcolor="#ffffff" align="center">
+										<div class="style3">
+										<s:textfield theme="simple"></s:textfield>
+										</div>
+									</td>
+									
+									<td bgcolor="#ffffff" align="center">
+										<div class="style3">
+									    <s:submit value="add result" method="removeProductCase" theme="simple" onclick="return check();">
+									    </s:submit>
+										</div>
+									</td>
+									
 								</tr>
 						
 						</s:iterator>
