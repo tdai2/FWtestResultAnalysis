@@ -109,7 +109,7 @@ body {
     <li>
          <a class="head">Test Result Management</a>
       <ul>
-        <li><a href="TestResultAction!showTestResultList.action" target="rightFrame">Test result Management</a></li>
+        <li><a href="TestResultAction!toInputConfig.action" target="rightFrame">Add Test Result</a></li>
         <!--<li><a href="firstpage!adminShowFirstPage.action" target="rightFrame">Add Test Result</a></li>-->
       </ul>
     </li>

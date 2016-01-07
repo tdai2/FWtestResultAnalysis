@@ -32,11 +32,55 @@ public class TestResultAction extends ActionSupport{
 		return "testResultList";
 	}
 	
-	public String toChooseProduct()throws Exception{
+	public String toInputConfig()throws Exception{
 		ActionContext context=ActionContext.getContext();
 		List<Product> productList=ProductDao.getProductList();
 		context.put("productList", productList);
-		return "toChooseProduct";
+		
+		
+		List<SwConfig> swConfigList=SwConfigDao.getSwConfigList();
+		context.put("SwConfig", swConfigList);
+		
+		List<HwConfig> hwConfigList=HwConfigDao.getHwConfigList();
+		context.put("HwConfig", hwConfigList);
+		
+		return "inputConfig";
+	}
+	
+	public String inputConfig()throws Exception{
+		ActionContext context=ActionContext.getContext();
+		HttpServletRequest request=ServletActionContext.getRequest();
+		//System.out.println("Production Id is "+Integer.parseInt(request.getParameter("pID")));
+		//String swCID=request.getParameter("swCID");
+		//System.out.println("sw configuraiton id is "+Integer.parseInt(swCID));
+		//System.out.println("hw configuration id is "+Integer.parseInt(request.getParameter("hwCID")));
+		Product product=new Product();
+		product=ProductDao.getProduct(Integer.parseInt(request.getParameter("pID")));
+		SwConfig swConfig=new SwConfig();
+		swConfig=SwConfigDao.getSwConfig(Integer.parseInt(request.getParameter("swCID")));
+		HwConfig hwConfig=new HwConfig();
+		hwConfig=HwConfigDao.getHwConfig(Integer.parseInt(request.getParameter("hwCID")));
+		//System.out.println("product ID is "+product.getId());
+		//System.out.println(product.gettestcases());
+		context.put("caseList", product.gettestcases());
+		context.put("product",product.getProduction());
+		context.put("pID", product.getId());
+		context.put("swConfig",swConfig);
+		context.put("hwConfig",hwConfig);
+		return "toAddTestResult";
+	}
+	
+	public String toChooseSWConfig()throws Exception{
+		ActionContext context=ActionContext.getContext();
+				
+		List<SwConfig> sw_config=SwConfigDao.getSwConfigList();
+		context.put("SwConfig", sw_config);
+		/*
+		List<HwConfig> hw_config=HwConfigDao.getHwConfigList();
+		context.put("HwConfig", hw_config);
+		*/
+		
+		return "chooseSWConfig";
 	}
 	
 	public String toAddTestResult()throws Exception{
@@ -124,6 +168,7 @@ public class TestResultAction extends ActionSupport{
 		context.put("testResultlist", testResultList);
 		return "testResultList";
     }
+    /*
     public String toEditTestResult()throws Exception{
     	
     	ActionContext context=ActionContext.getContext();
@@ -133,5 +178,5 @@ public class TestResultAction extends ActionSupport{
 		context.put("testResult", testResult);
 	    return "editTestResult";
     }
-    
+    */
 }

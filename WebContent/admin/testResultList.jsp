@@ -86,7 +86,7 @@ body {
 						<tr width="100%" height="50px" > 
 							<td bgcolor="d3eaef" align="right" colspan="8" >
 								<div style="margin-right:20px;">
-									<s:a action="TestResultAction" method="toChooseProduct">
+									<s:a action="TestResultAction" method="toEditTestConfig">
 									Add Test Result
 									</s:a>
 								</div>

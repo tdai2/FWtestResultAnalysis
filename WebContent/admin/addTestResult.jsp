@@ -149,43 +149,43 @@ body {
 									<tr>
 									<td bgcolor="d3eaef" align="center">
 						   <div class="style2">
-						   BMC Version:
-						   	<s:textfield name="BMC" theme="simple"></s:textfield>
+						         BMC Version:
+						   	<s:property value="#request.swConfig.bmcVersion"></s:property>
 						   </div>
 						   </td>							
 						   						   
 						   <td bgcolor="d3eaef" align="center">
 						   <div class="style2">
 						   FRUSDR Version
-						   <s:textfield name="FRUSDR" theme="simple"></s:textfield>
+						   <s:property value="#request.swConfig.fusdrVersion"></s:property>
 						   </div>
 						   </td>
 						    
 			               <td bgcolor="d3eaef" align="center">
    				           <div class="style2">
 					       HSC FW Version
-					       <s:textfield name="HSC" theme="simple"></s:textfield>
+					       <s:property value="#request.swConfig.hscVersion"></s:property>
 			   	           </div>
 			               </td>
 			               
 			               <td bgcolor="d3eaef" align="center">
    				           <div class="style2">
 					       PSU FW Version
-					       <s:textfield name="PSUFW" theme="simple"></s:textfield>
+					       <s:property value="#request.swConfig.psuVersion"></s:property>
 			   	           </div>
 			               </td>
 			               
 			               <td bgcolor="d3eaef" align="center">
    				           <div class="style2">
 					       BIOS Version
-					       <s:textfield name="BIOS" theme="simple"></s:textfield>
+					       <s:property value="#request.swConfig.biosVersion"></s:property>
 			   	           </div>
 			               </td>
 			               
 			               <td bgcolor="d3eaef" align="center">
    				           <div class="style2">
 					       ME Version
-					       <s:textfield name="ME" theme="simple"></s:textfield>
+					       <s:property value="#request.swConfig.meVersion"></s:property>
 			   	           </div>
 			               </td>
 									</tr>
@@ -222,49 +222,49 @@ body {
 									<td bgcolor="d3eaef" align="center">
 						   <div class="style2">
 						   Base Board SKU:
-						   	<s:textfield name="bbSKU" theme="simple"></s:textfield>
+						   	<s:property value="#request.hwConfig.boardSku"></s:property>
 						   </div>
 						   </td>							
 						   						   
 						   <td bgcolor="d3eaef" align="center">
 						   <div class="style2">
 						   Base Board Fab
-						   <s:textfield name="Fab" theme="simple"></s:textfield>
+						   <s:property value="#request.hwConfig.boardFab"></s:property>
 						   </div>
 						   </td>
 						    
 			               <td bgcolor="d3eaef" align="center">
    				           <div class="style2">
 					       Chassis
-					       <s:textfield name="Chassis" theme="simple"></s:textfield>
+					       <s:property value="#request.hwConfig.chassis"></s:property>
 			   	           </div>
 			               </td>
 			               
 			               <td bgcolor="d3eaef" align="center">
    				           <div class="style2">
 					       HSBP
-					       <s:textfield name="HSBP" theme="simple"></s:textfield>
+					       <s:property value="#request.hwConfig.hsbp"></s:property>
 			   	           </div>
 			               </td>
 			               
 			               <td bgcolor="d3eaef" align="center">
    				           <div class="style2">
 					       PSU
-					       <s:textfield name="PSU" theme="simple"></s:textfield>
+					       <s:property value="#request.hwConfig.psu"></s:property>
 			   	           </div>
 			               </td>
 			               
 			               <td bgcolor="d3eaef" align="center">
    				           <div class="style2">
 					       CPU
-					       <s:textfield name="CPU" theme="simple"></s:textfield>
+					       <s:property value="#request.hwConfig.cpu"></s:property>
 			   	           </div>
 			               </td>
 			               
 			               <td bgcolor="d3eaef" align="center">
    				           <div class="style2">
 					       Memory
-					       <s:textfield name="Memory" theme="simple"></s:textfield>
+					       <s:property value="#request.hwConfig.memory"></s:property>
 			   	           </div>
 			               </td>
 									</tr>
