@@ -8,12 +8,10 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
-import com.model.HibernateSessionFactory;
-import com.model.TestResult;
-
 import javassist.bytecode.Descriptor.Iterator;
 
 import com.model.*;
+import com.dao.*;
 
 
 public class TestResultDao {
@@ -63,6 +61,21 @@ public class TestResultDao {
 		
 	}
 
+	public static void addTestResult(String pID, String swCID, String hwCID,String caseID,String result, String tType, String tracker, String note, Date time )
+	{
+		
+		addTestResult(
+				ProductDao.getProduct(Integer.parseInt(pID)),
+				SwConfigDao.getSwConfig(Integer.parseInt(swCID)),
+		        HwConfigDao.getHwConfig(Integer.parseInt(hwCID)),
+		        TestCaseDao.getTestCase(Integer.parseInt(caseID)),
+				result,
+				tType,
+				tracker,
+				note,
+				time);	
+	}
+	
 	public static void editTestResult(Product product, SwConfig swConfig, HwConfig hwConfig,TestCase tcase ,String result, String tType, String tracker, String note, Date time )
 	{
 		Session session=HibernateSessionFactory.getSession();

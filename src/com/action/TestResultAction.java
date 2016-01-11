@@ -63,7 +63,7 @@ public class TestResultAction extends ActionSupport{
 		//System.out.println("product ID is "+product.getId());
 		//System.out.println(product.gettestcases());
 		context.put("caseList", product.gettestcases());
-		context.put("product",product.getProduction());
+		context.put("product",product);
 		context.put("pID", product.getId());
 		context.put("swConfig",swConfig);
 		context.put("hwConfig",hwConfig);
@@ -86,6 +86,60 @@ public class TestResultAction extends ActionSupport{
 	public String toAddTestResult()throws Exception{
 		ActionContext context=ActionContext.getContext();
 		HttpServletRequest request=ServletActionContext.getRequest();
+		
+		String pID=request.getParameter("pID");
+		System.out.println("pID is "+pID);
+		String swCID=request.getParameter("swCID");
+		System.out.println("swCID is "+swCID);
+		String hwCID=request.getParameter("hwCID");
+		System.out.println("hwCID is "+hwCID);
+		//String caseID=request.getParameter("caseID");
+		//System.out.println("caseID is "+caseID);
+		String[] result=request.getParameterValues("result");
+		  for(int i=0;i<result.length;i++)
+		  {  
+		   System.out.println(result[i]);
+		   System.out.println("Length is"+result[i].length());
+		  }
+		String[] casesID=request.getParameterValues("cases");
+		  for(int i=0;i<casesID.length;i++)
+		  {  
+		   System.out.println(casesID[i]);    
+		  }
+		  
+		String[] trackers=request.getParameterValues("trackerNos");
+		for(int i=0;i<trackers.length;i++)
+		  {  
+		   System.out.println(trackers[i]);    
+		  }
+		
+		String[] notes=request.getParameterValues("notes");
+		for(int i=0;i<notes.length;i++)
+		  {  
+		   System.out.println(notes[i]);    
+		  }		
+		Date time = new Date();
+
+		System.out.println("before add test reulst function");
+		for(int i=0;i<casesID.length;i++)
+		{
+		if(!result[i].equals("No Run"))
+		TestResultDao.addTestResult(pID, swCID, hwCID, casesID[i], result[i], "try", trackers[i], notes[i], time);
+		}
+		Product product=new Product();
+		product=ProductDao.getProduct(Integer.parseInt(request.getParameter("pID")));
+		SwConfig swConfig=new SwConfig();
+		swConfig=SwConfigDao.getSwConfig(Integer.parseInt(request.getParameter("swCID")));
+		HwConfig hwConfig=new HwConfig();
+		hwConfig=HwConfigDao.getHwConfig(Integer.parseInt(request.getParameter("hwCID")));
+		
+		context.put("caseList", product.gettestcases());
+		context.put("product",product);
+		context.put("swConfig",swConfig);
+		context.put("hwConfig",hwConfig);
+		return "toAddTestResult";
+		
+		/*
 		System.out.println("In to addTestResult");
 		Product product=new Product();
 		System.out.println("PId is "+Integer.parseInt(request.getParameter("product")));
@@ -95,6 +149,7 @@ public class TestResultAction extends ActionSupport{
 		context.put("caseList", product.gettestcases());
 		context.put("product",product.getProduction());
 		return "toAddTestResult";
+		*/
 	}
 	
 	public String addTestResult()throws Exception{

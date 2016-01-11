@@ -34,15 +34,13 @@
         	var caseID = tr.cells[0].innerText;
             document.getElementById("caseID").value=caseID;
             alert("caseID="+caseID);
-            var caseResult = tr.cells[3].innerText;
+            var caseResult = tr.cells[1].innerText;
             document.getElementById("testResult").value=testResult;
             alert("testResult="+testResult);
             var trackerNO = tr.cells[4].innerText;
             document.getElementById("trackerNO").value=trackerNO;
             var notes = tr.cells[5].innerText;
             document.getElementById("notes").value=notes;
-            
-            
             alert("trackerNO="+trackerNO);
             alert("notes="+notes);            
         	}
@@ -110,7 +108,7 @@ body {
 										<td valign="bottom">
 											<span class="style1">Add Test Result for </span>
 											<span class="style1">
-											<s:property value="#request.product"></s:property>
+											<s:property value="#request.product.production"></s:property>
 											</span>
 										</td>
 									</td>
@@ -316,22 +314,20 @@ body {
 					       Notes
 			   	           </div>
 			               </td>
-			               
-			               <td bgcolor="d3eaef" align="center">
-   				           <div class="style2">
-					       Confirm
-			   	           </div>
-			               </td>
-			               
 						</tr>
 
 		
-                        <s:hidden id="caseID" name="caseID"  theme="simple"></s:hidden>
+                        <input type="hidden" id="swCID" name="swCID" value="${request.swConfig.id}" />
+                        <input type="hidden" id="hwCID" name="hwCID" value="${request.hwConfig.id}" />
+                        <input type="hidden" id="pID" name="pID" value="${request.product.id}"/>
+                        
 						<s:iterator var="result" value="#request.caseList">
-								<tr  onclick = "selectRow(this)">
+								<!--<tr  onclick = "selectRow(this)">-->
+								<tr>
 									<td bgcolor="#ffffff" align="center">
 										<div class="style3">
-											<s:property value="#result.id" ></s:property>
+											<s:property  value="#result.id" ></s:property>
+											<input type=hidden name="cases" value="${result.id}"/>
 										</div>
 									</td>
 
@@ -349,7 +345,7 @@ body {
 									<td bgcolor="#ffffff" align="center">
 										<div class="style3">
 										<s:select label="testResult"
-										name="testResult"
+										name="result"
 										headerKey="No Run" headerVakue="No Run"
 										 list="#{'No Run':'No Run', 'Passed':'Passed', 'Failed':'Failed', 'Blocked':'Blocked',  'N/A':'N/A' }"  
 										 listValue="value" listKey="key"/>
@@ -358,24 +354,15 @@ body {
 									
 									<td bgcolor="#ffffff" align="center">
 										<div class="style3">
-										<s:textfield theme="simple"></s:textfield>
-											
+										<s:textfield name="trackerNos" theme="simple"></s:textfield>
 										</div>
 									</td>
 									
 									<td bgcolor="#ffffff" align="center">
 										<div class="style3">
-										<s:textfield theme="simple"></s:textfield>
+										<s:textfield name="notes" theme="simple"></s:textfield>
 										</div>
 									</td>
-									
-									<td bgcolor="#ffffff" align="center">
-										<div class="style3">
-									    <s:submit value="add result" method="removeProductCase" theme="simple" onclick="return check();">
-									    </s:submit>
-										</div>
-									</td>
-									
 								</tr>
 						
 						</s:iterator>
@@ -385,7 +372,7 @@ body {
 		<tr height="50px">
 						<td colspan="2" bgcolor="#ffffff" align="center">
 							<div class="style2">
-							 <s:submit value="submit" method="addTestResult" theme="simple" onclick="return check();"></s:submit>
+							 <s:submit value="submit" method="toAddTestResult" theme="simple" onclick="return check();"></s:submit>
 							 </div>
 						</td>
 					</tr>
