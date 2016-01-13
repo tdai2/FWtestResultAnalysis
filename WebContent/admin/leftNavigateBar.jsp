@@ -121,7 +121,7 @@ body {
     </li>
      <li> <a class="head">Test Result View</a>
       <ul>
-        <li><a href="adminteacher!getTeacher.action" target="rightFrame">Test Result View</a></li>
+        <li><a href="TestResultAction!showTestResultList.action" target="rightFrame">Test Result View</a></li>
       </ul>
     </li>
   </ul>

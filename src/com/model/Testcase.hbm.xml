@@ -18,14 +18,17 @@
         <property name="testCaseVersion" type="string">
             <column name="TestCaseVersion" length="5" not-null="true" />
         </property>
+        
+        
         <set name="products" table="case_product">
             <key>
                 <column name="caseID" />
             </key>
             <many-to-many class="com.model.Product" column="productID"/>
         </set>
+
         
-        <set name="results" table="testresult">
+        <set name="results" table="testresult" >
             <key>
                 <column name="CaseID" />
             </key>

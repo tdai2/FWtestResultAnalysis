@@ -20,13 +20,12 @@
         
 <!--        <set name="testcases" table="case_product" inverse="true" lazy="false">  -->
 			<set name="testcases" table="case_product" lazy="false"> 
-            <key>
-                <column name="productID" />
-            </key>
-            <many-to-many class="com.model.TestCase" column="caseID" />
-        </set>
-        
-        
+                <key>
+                    <column name="productID" />
+                </key>
+                <many-to-many class="com.model.TestCase" column="caseID" />
+            </set>
+
         <set name="results" table="testresult">
             <key>
                 <column name="CaseID" />

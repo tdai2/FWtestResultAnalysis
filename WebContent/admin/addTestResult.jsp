@@ -31,8 +31,10 @@
 
     	function selectRow(tr)
     	{
+        	
+    		alert("hello");
         	var caseID = tr.cells[0].innerText;
-            document.getElementById("caseID").value=caseID;
+            document.getElementById("cases").value=caseID;
             alert("caseID="+caseID);
             var caseResult = tr.cells[1].innerText;
             document.getElementById("testResult").value=testResult;
@@ -322,12 +324,12 @@ body {
                         <input type="hidden" id="pID" name="pID" value="${request.product.id}"/>
                         
 						<s:iterator var="result" value="#request.caseList">
-								<!--<tr  onclick = "selectRow(this)">-->
+								<!-- <tr  onclick = "selectRow(this)"> -->
 								<tr>
 									<td bgcolor="#ffffff" align="center">
 										<div class="style3">
 											<s:property  value="#result.id" ></s:property>
-											<input type=hidden name="cases" value="${result.id}"/>
+											<input type="hidden" name="cases" value="${result.id}"/>
 										</div>
 									</td>
 

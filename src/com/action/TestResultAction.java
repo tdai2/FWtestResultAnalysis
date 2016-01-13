@@ -189,12 +189,12 @@ public class TestResultAction extends ActionSupport{
 		context.put("testResultList", testResultList);
 		return "testResultList";
 	}
+	
 	public Set<Product> getProductSet(String[] pID){
 		Set<Product> result = new HashSet<Product> (); 
 		System.out.println("In getProductSet");
 		for(int i=0;i<pID.length;i++){
 			result.add(ProductDao.getProduct(Integer.parseInt(pID[i])));
-			
 		}
 		System.out.println("Current pId is "+result.toString());
 		return result;
@@ -202,11 +202,9 @@ public class TestResultAction extends ActionSupport{
 	
 	public String showTestResultList()throws Exception{
 		ActionContext context=ActionContext.getContext();
-	
 		List<TestResult> testResultList=TestResultDao.getTestResultList();
+		//System.out.println("tcase title is "+testResultList.get(4).gettcase().getTestTitle());
 		context.put("testResultList", testResultList);
-		List<Product> resultList=ProductDao.getProductList();
-		context.put("resultList",resultList);
 		return "testResultList";
 	}
 

@@ -64,8 +64,7 @@ public class TestCase implements java.io.Serializable {
 		this.testCatagory = testCatagory;
 		this.testTitle = testTitle;
 		this.testCaseVersion = testCaseVersion;
-		this.products=products; 
-		
+		this.products=products;
 	}
 
 	public Integer getId() {

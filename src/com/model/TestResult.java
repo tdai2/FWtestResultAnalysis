@@ -14,12 +14,12 @@ public class TestResult implements java.io.Serializable {
 	private String notes;
 	private Date recordTime;
 	private String testType;
+	private TestCase tcase; 
 	private Product product; 
 	private SwConfig swConfig;
 	private HwConfig hwConfig;
-	private TestCase tcase; 
 	
-
+	
 	public TestResult() {
 	}
 

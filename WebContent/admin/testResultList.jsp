@@ -10,6 +10,17 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
+	
+	<script type="text/javascript">
+		function selectRow(tr)
+    	{
+        	var results=document.getElementById("jsvar");  
+        	//results=100;      
+            alert("results="+results);
+        	}
+		
+		</script>
+	
 		<base href="<%=basePath%>">
 
 		<title>'TestCaselist.jsp' starting page</title>
@@ -20,6 +31,8 @@
 		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 		<meta http-equiv="description" content="This is my page">
 		<style type="text/css">
+		
+		
 body {
 	margin-left: 3px;
 	margin-top: 0px;
@@ -97,13 +110,19 @@ body {
 						
 						   <td bgcolor="d3eaef" align="center">
 						   <div class="style2">
-						   ID
+						   Result ID
 						   </div>
 						   </td>
 						
 						   <td bgcolor="d3eaef" align="center">
 						   <div class="style2">
 						   Case Title
+						   </div>
+						   </td>
+						   
+						   <td bgcolor="d3eaef" align="center">
+						   <div class="style2">
+						   Product
 						   </div>
 						   </td>							
 						   						   
@@ -130,28 +149,18 @@ body {
 					       Board SKU
 			   	           </div>
 			               </td>
-			               
-			               <td bgcolor="d3eaef" align="center">
-   				           <div class="style2">
-					       Edit
-			   	           </div>
-			               </td>
-			               
-			               <td bgcolor="d3eaef" align="center">
-   				           <div class="style2">
-					       Delete
-			   	           </div>
-			               </td>
-			               
 						</tr>
-	
-
-						<s:iterator var="result" value="#request.testResultList">
 						
+						<s:iterator var="result" value="#request.testResultList">
 								<tr>
+									<td bgcolor="#ffffff" align="center" >
+										<div class="style3">
+										<s:property value="#result.testResultId"></s:property>
+										</div>
+									</td>
 									<td bgcolor="#ffffff" align="center">
 										<div class="style3">
-										<s:property value="#reuslt.tcase.testTitle"></s:property>
+											<s:property value="#result.tcase.testTitle"></s:property>
 										</div>
 									</td>
 
@@ -162,7 +171,13 @@ body {
 									</td>
 									<td bgcolor="#ffffff" align="center">
 										<div class="style3">
-											<s:property value="#result.results"></s:property>
+											<s:property value="#result.caseResult"></s:property>
+											
+										</div>
+									</td>
+									<td bgcolor="#ffffff" align="center">
+										<div class="style3">
+											<s:property value="#result.tcase"></s:property>
 										</div>
 									</td>
 									<td bgcolor="#ffffff" align="center">
@@ -172,33 +187,10 @@ body {
 									</td>
 									<td bgcolor="#ffffff" align="center">
 										<div class="style3">
-											<s:property value="#result.swConfig.frusdrVersion"></s:property>
-										</div>
-									</td>
-									<td bgcolor="#ffffff" align="center">
-										<div class="style3">
 											<s:property value="#result.hwConfig.boardSKU"></s:property>
 										</div>
 									</td>
 									
-									
-									<td bgcolor="#ffffff" align="center">
-										<div class="style3">
-											<s:a action="TestCaseAction" method="toEditTestResult">
-												Edit
-												<s:param name="id">${result.id}</s:param>
-											</s:a>
-										</div>
-									</td>
-									
-									<td bgcolor="#ffffff" align="center">
-										<div class="style3">
-											<s:a action="TestCaseAction" method="delTestResult">
-												Delete
-												<s:param name="id">${result.id}</s:param>
-											</s:a>
-										</div>
-									</td>
 								</tr>
 						
 						</s:iterator>
