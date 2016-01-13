@@ -17,8 +17,8 @@
         <property name="psuVersion" type="string">
             <column name="PSU_version" length="5" not-null="true" />
         </property>
-        <property name="fusdrVersion" type="string">
-            <column name="FUSDR_version" length="5" not-null="true" />
+        <property name="frusdrVersion" type="string">
+            <column name="FRUSDR_version" length="5" not-null="true" />
         </property>
         <property name="biosVersion" type="string">
             <column name="BIOS_version" length="15" not-null="true" />

@@ -13,7 +13,7 @@ public class SwConfig implements java.io.Serializable {
 	private String bmcVersion;
 	private String hscVersion;
 	private String psuVersion;
-	private String fusdrVersion;
+	private String frusdrVersion;
 	private String biosVersion;
 	private String meVersion;
 	private Set<TestResult> results=new HashSet<TestResult>();
@@ -21,12 +21,12 @@ public class SwConfig implements java.io.Serializable {
 	public SwConfig() {
 	}
 
-	public SwConfig(String bmcVersion, String hscVersion, String psuVersion, String fusdrVersion, String biosVersion,String meVersion,Set<TestResult> results) {
+	public SwConfig(String bmcVersion, String hscVersion, String psuVersion, String frusdrVersion, String biosVersion,String meVersion,Set<TestResult> results) {
 		this.results=results;
 		this.bmcVersion = bmcVersion;
 		this.hscVersion = hscVersion;
 		this.psuVersion = psuVersion;
-		this.fusdrVersion = fusdrVersion;
+		this.frusdrVersion = frusdrVersion;
 		this.biosVersion = biosVersion;
 		this.meVersion = meVersion;
 	}
@@ -63,12 +63,12 @@ public class SwConfig implements java.io.Serializable {
 		this.psuVersion = psuVersion;
 	}
 
-	public String getFusdrVersion() {
-		return this.fusdrVersion;
+	public String getFrusdrVersion() {
+		return this.frusdrVersion;
 	}
 
-	public void setFusdrVersion(String fusdrVersion) {
-		this.fusdrVersion = fusdrVersion;
+	public void setFrusdrVersion(String frusdrVersion) {
+		this.frusdrVersion = frusdrVersion;
 	}
 
 	public String getBiosVersion() {

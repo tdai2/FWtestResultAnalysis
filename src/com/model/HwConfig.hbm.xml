@@ -20,7 +20,7 @@
         <property name="hsbp" type="string">
             <column name="HSBP" length="10" />
         </property>
-        <property name="pus" type="string">
+        <property name="psu" type="string">
             <column name="PUS" length="10" />
         </property>
         <property name="cpu" type="string">

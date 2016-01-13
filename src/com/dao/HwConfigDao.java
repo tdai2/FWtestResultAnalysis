@@ -36,7 +36,7 @@ public class HwConfigDao {
 		hwConfig.setBoardFab(Fab);
 		hwConfig.setChassis(Chassis);
 		hwConfig.setHsbp(HSBP);
-		hwConfig.setPus(PSU);
+		hwConfig.setPsu(PSU);
 		hwConfig.setCpu(CPU);
 		hwConfig.setMemory(Memory);
 		
@@ -61,7 +61,7 @@ public class HwConfigDao {
 		hwConfig.setBoardFab(Fab);
 		hwConfig.setChassis(Chassis);
 		hwConfig.setHsbp(HSBP);
-		hwConfig.setPus(PSU);
+		hwConfig.setPsu(PSU);
 		hwConfig.setCpu(CPU);
 		hwConfig.setMemory(Memory);
 		hwConfig.setId(Integer.parseInt(id));		

@@ -156,10 +156,14 @@ body {
 										<td valign="bottom">Please chosse SW configuration
 										</td>
 										
-										<td width="18px" valign="bottom" align="right">
-										</td>
-										<td valign="bottom">Add A SW config 
-										</td>
+										<td bgcolor="d3eaef" align="right" colspan="8" >
+								           <div style="margin-right:20px;">
+							 	            <s:a action="swConfigAction" method="toAddSwConfig">
+                 								Add A SW config
+				           					</s:a>
+								           </div>
+							            </td>			
+							            
 									</tr>
 								</table>
 							</td>
@@ -269,6 +273,14 @@ body {
 										<td valign="bottom">
 											<span class="style1">HW Configuration: </span>
 										</td>
+										
+										<td bgcolor="d3eaef" align="right" colspan="8" >
+								           <div style="margin-right:20px;">
+							 	            <s:a action="hwConfigAction" method="toAddHwConfig">
+                 								Add A HW config
+				           					</s:a>
+								           </div>
+							            </td>										
 									</td>
 									</tr>
 								</table>

@@ -14,7 +14,7 @@ public class HwConfig implements java.io.Serializable {
 	private String boardFab;
 	private String chassis;
 	private String hsbp;
-	private String pus;
+	private String psu;
 	private String cpu;
 	private String memory;
 	private Set<TestResult> results=new HashSet<TestResult>();
@@ -22,13 +22,13 @@ public class HwConfig implements java.io.Serializable {
 	public HwConfig() {
 	}
 
-	public HwConfig(String boardSku, String boardFab, String chassis, String hsbp, String pus, String cpu,String memory,Set<TestResult> results) {
+	public HwConfig(String boardSku, String boardFab, String chassis, String hsbp, String psu, String cpu,String memory,Set<TestResult> results) {
 		this.results=results;
 		this.boardSku = boardSku;
 		this.boardFab = boardFab;
 		this.chassis = chassis;
 		this.hsbp = hsbp;
-		this.pus = pus;
+		this.psu = psu;
 		this.cpu = cpu;
 		this.memory = memory;
 	}
@@ -73,12 +73,12 @@ public class HwConfig implements java.io.Serializable {
 		this.hsbp = hsbp;
 	}
 
-	public String getPus() {
-		return this.pus;
+	public String getpsu() {
+		return this.psu;
 	}
 
-	public void setPus(String pus) {
-		this.pus = pus;
+	public void setPsu(String psu) {
+		this.psu = psu;
 	}
 
 	public String getCpu() {

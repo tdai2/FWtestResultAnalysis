@@ -19,7 +19,16 @@
 			<result name="product">/admin/productList.jsp</result>
 			<result name="toAddProduct">/admin/addProduct.jsp</result>
 			<result name="editProduct">/admin/editProduct.jsp</result>
-				
+		</action>
+		
+		<action name="hwConfigAction" class="com.action.HwConfigAction">
+			<result name="toAddHwConfig">/admin/addHwConfig.jsp</result>
+			<result name="addHwConfig">/admin/inputTestConfig.jsp</result>
+		</action>
+		
+		<action name="swConfigAction" class="com.action.SwConfigAction">
+			<result name="toAddSwConfig">/admin/addSwConfig.jsp</result>
+			<result name="addSwConfig">/admin/inputTestConfig.jsp</result>
 		</action>
 		
 		<action name="TestCaseAction" class="com.action.TestCaseAction">

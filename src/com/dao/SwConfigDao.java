@@ -33,7 +33,7 @@ public class SwConfigDao {
 		Session session=HibernateSessionFactory.getSession();
 		SwConfig swConfig=new SwConfig();
 		swConfig.setBmcVersion(BMC);
-		swConfig.setFusdrVersion(FRUSDR);
+		swConfig.setFrusdrVersion(FRUSDR);
 		swConfig.setHscVersion(HSC);
 		swConfig.setPsuVersion(PSU);
 		swConfig.setBiosVersion(BIOS);
@@ -58,7 +58,7 @@ public class SwConfigDao {
 		Session session=HibernateSessionFactory.getSession();
 		SwConfig swConfig=new SwConfig();
 		swConfig.setBmcVersion(BMC);
-		swConfig.setFusdrVersion(FRUSDR);
+		swConfig.setFrusdrVersion(FRUSDR);
 		swConfig.setHscVersion(HSC);
 		swConfig.setPsuVersion(PSU);
 		swConfig.setBiosVersion(BIOS);
