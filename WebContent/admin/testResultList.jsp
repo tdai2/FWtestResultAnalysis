@@ -12,11 +12,22 @@
 	<head>
 	
 	<script type="text/javascript">
+	
 		function selectRow(tr)
     	{
-        	var results=document.getElementById("jsvar");  
-        	//results=100;      
-            alert("results="+results);
+			
+			var test2= <%=request.getAttribute("testVar")%>; 
+			alert("testVar="+test2);
+			var result = ${requestScope.testVar};
+			alert("testVar="+result);
+			var test3= <%=request.getAttribute("testResultList")%>; 
+			alert("testVar="+test3);
+
+			
+        	//results=100;
+        	
+            
+            
         	}
 		
 		</script>
@@ -96,16 +107,6 @@ body {
 					<table width="100%" border="0" cellpadding="0" cellspacing="1"
 						bgcolor="#a8c7ce">
 						
-						<tr width="100%" height="50px" > 
-							<td bgcolor="d3eaef" align="right" colspan="8" >
-								<div style="margin-right:20px;">
-									<s:a action="TestResultAction" method="toEditTestConfig">
-									Add Test Result
-									</s:a>
-								</div>
-							</td>
-						</tr>
-						
 						<tr>
 						
 						   <td bgcolor="d3eaef" align="center">
@@ -151,8 +152,8 @@ body {
 			               </td>
 						</tr>
 						
-						<s:iterator var="result" value="#request.testResultList">
-								<tr>
+						<s:iterator var="result" value="#testResultList">
+								<tr onclick="selectRow(this)">
 									<td bgcolor="#ffffff" align="center" >
 										<div class="style3">
 										<s:property value="#result.testResultId"></s:property>
@@ -160,13 +161,13 @@ body {
 									</td>
 									<td bgcolor="#ffffff" align="center">
 										<div class="style3">
-											<s:property value="#result.tcase.testTitle"></s:property>
+										<s:property value="#result.gettcase().testTitle"></s:property>
 										</div>
 									</td>
 
 									<td bgcolor="#ffffff" align="center">
 										<div class="style3">
-											<s:property value="#result.product.production"></s:property>
+											<s:property value="#result.getProduct().production"></s:property>
 										</div>
 									</td>
 									<td bgcolor="#ffffff" align="center">
@@ -177,17 +178,17 @@ body {
 									</td>
 									<td bgcolor="#ffffff" align="center">
 										<div class="style3">
-											<s:property value="#result.tcase"></s:property>
+											<s:property value="#result.getswConfig().bmcVersion"></s:property>
 										</div>
 									</td>
 									<td bgcolor="#ffffff" align="center">
 										<div class="style3">
-											<s:property value="#result.swConfig.bmcVersion"></s:property>
+											<s:property value="#result.getswConfig().frusdrVersion"></s:property>
 										</div>
 									</td>
 									<td bgcolor="#ffffff" align="center">
 										<div class="style3">
-											<s:property value="#result.hwConfig.boardSKU"></s:property>
+											<s:property value="#result.gethwConfig().boardSku"></s:property>
 										</div>
 									</td>
 									

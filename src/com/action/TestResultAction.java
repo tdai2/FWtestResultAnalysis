@@ -204,7 +204,11 @@ public class TestResultAction extends ActionSupport{
 		ActionContext context=ActionContext.getContext();
 		List<TestResult> testResultList=TestResultDao.getTestResultList();
 		//System.out.println("tcase title is "+testResultList.get(4).gettcase().getTestTitle());
+		List<TestCase> testCaseList=TestCaseDao.getTestCaseList();
 		context.put("testResultList", testResultList);
+		context.put("testVar", testResultList.get(2).gettcase());
+		context.put("testResult", testResultList.get(0));
+		context.put("testCaseList", testCaseList);
 		return "testResultList";
 	}
 
@@ -218,7 +222,7 @@ public class TestResultAction extends ActionSupport{
 		String[] results = request.getParameterValues("pList");
 		//TestResultDao.editTestResult(catagory,title,version,getProductSet(results),id);
 		List<TestResult> testResultList=TestResultDao.getTestResultList();
-		context.put("testResultlist", testResultList);
+		context.put("testResultList", testResultList);
 		return "testResultList";
     }
     /*
